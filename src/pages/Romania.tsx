@@ -61,17 +61,17 @@ const Romania = () => {
       <motion.img
         src={romanianMotifs}
         alt=""
-        className="absolute top-24 right-0 w-[400px] md:w-[500px] opacity-[0.1] pointer-events-none select-none"
+        className="absolute top-32 -right-16 w-[500px] md:w-[700px] opacity-[0.12] pointer-events-none select-none mix-blend-multiply"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
+        animate={{ opacity: 0.12 }}
         transition={{ duration: 1.5 }}
       />
       <motion.img
         src={romanianMotifs}
         alt=""
-        className="absolute bottom-0 left-0 w-[350px] md:w-[450px] opacity-[0.07] pointer-events-none select-none rotate-180"
+        className="absolute bottom-24 -left-16 w-[500px] md:w-[700px] opacity-[0.08] pointer-events-none select-none mix-blend-multiply rotate-180"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.07 }}
+        animate={{ opacity: 0.08 }}
         transition={{ duration: 1.5, delay: 0.3 }}
       />
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
