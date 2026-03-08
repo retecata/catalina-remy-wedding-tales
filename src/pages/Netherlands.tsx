@@ -141,21 +141,28 @@ const Netherlands = () => {
             <h2 className="font-display text-xl font-medium text-foreground">{info.scheduleTitle}</h2>
           </div>
 
-          <div className="relative pl-6 ml-5 border-l border-accent">
+          <div className="grid grid-cols-4 gap-0">
             {scheduleItems[lang].map((item, i) => (
               <motion.div
                 key={item.time}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
                 viewport={{ once: true }}
-                className="relative pb-8 last:pb-0"
+                className="relative flex flex-col items-center text-center"
               >
-                <div className="absolute -left-[1.6rem] top-1 w-3 h-3 rounded-full bg-primary/20 border-2 border-primary" />
-                <div className="flex items-baseline gap-4">
-                  <span className="text-sm font-medium text-primary tabular-nums">{item.time}</span>
-                  <span className="text-muted-foreground font-light">{item.label}</span>
+                {/* Connecting line */}
+                {i < scheduleItems[lang].length - 1 && (
+                  <div className="absolute top-4 left-[calc(50%+12px)] right-0 h-px bg-accent w-full" />
+                )}
+                {/* Dot */}
+                <div className="relative z-10 w-8 h-8 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mb-3">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
                 </div>
+                {/* Time */}
+                <span className="font-display text-lg font-medium text-foreground tabular-nums mb-1">{item.time}</span>
+                {/* Label */}
+                <span className="text-sm text-muted-foreground font-light">{item.label}</span>
               </motion.div>
             ))}
           </div>
