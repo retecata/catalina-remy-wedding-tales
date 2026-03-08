@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Send, Check, Lock } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { Language } from '@/lib/translations';
 import { z } from 'zod';
+
+const ACCESS_CODE = '2323';
 
 const rsvpSchema = z.object({
   name: z.string().trim().min(1).max(100),
@@ -34,6 +36,11 @@ const formTranslations: Record<Language, {
   successTitle: string;
   successMessage: string;
   errorMessage: string;
+  codeTitle: string;
+  codeSubtitle: string;
+  codePlaceholder: string;
+  codeSubmit: string;
+  codeError: string;
 }> = {
   en: {
     title: 'RSVP',
@@ -54,6 +61,11 @@ const formTranslations: Record<Language, {
     successTitle: 'Thank you!',
     successMessage: "Your RSVP has been received. We can't wait to celebrate with you!",
     errorMessage: 'Something went wrong. Please try again.',
+    codeTitle: 'Enter your invitation code',
+    codeSubtitle: 'You can find this on your invitation',
+    codePlaceholder: 'Code',
+    codeSubmit: 'Continue',
+    codeError: 'Incorrect code. Please try again.',
   },
   nl: {
     title: 'RSVP',
@@ -74,6 +86,11 @@ const formTranslations: Record<Language, {
     successTitle: 'Bedankt!',
     successMessage: 'Je RSVP is ontvangen. We kunnen niet wachten om met je te vieren!',
     errorMessage: 'Er ging iets mis. Probeer het opnieuw.',
+    codeTitle: 'Voer je uitnodigingscode in',
+    codeSubtitle: 'Deze vind je op je uitnodiging',
+    codePlaceholder: 'Code',
+    codeSubmit: 'Doorgaan',
+    codeError: 'Onjuiste code. Probeer het opnieuw.',
   },
   ro: {
     title: 'RSVP',
@@ -94,6 +111,11 @@ const formTranslations: Record<Language, {
     successTitle: 'Mulțumim!',
     successMessage: 'RSVP-ul tău a fost primit. Abia așteptăm să sărbătorim împreună!',
     errorMessage: 'Ceva nu a mers bine. Te rugăm să încerci din nou.',
+    codeTitle: 'Introdu codul de invitație',
+    codeSubtitle: 'Îl găsești pe invitația ta',
+    codePlaceholder: 'Cod',
+    codeSubmit: 'Continuă',
+    codeError: 'Cod incorect. Te rugăm să încerci din nou.',
   },
 };
 
@@ -104,6 +126,9 @@ interface RSVPFormProps {
 
 const RSVPForm = ({ event, lang }: RSVPFormProps) => {
   const t = formTranslations[lang];
+  const [unlocked, setUnlocked] = useState(false);
+  const [code, setCode] = useState('');
+  const [codeError, setCodeError] = useState(false);
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -115,6 +140,16 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+
+  const handleCodeSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (code.trim() === ACCESS_CODE) {
+      setUnlocked(true);
+      setCodeError(false);
+    } else {
+      setCodeError(true);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -168,13 +203,55 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
   const inputClass =
     'w-full bg-background border border-input rounded-sm px-4 py-3 text-foreground font-body text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring transition-colors';
 
+  // Code gate
+  if (!unlocked) {
+    return (
+      <motion.form
+        onSubmit={handleCodeSubmit}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="space-y-6"
+      >
+        <div className="text-center mb-4">
+          <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+            <Lock className="w-5 h-5 text-primary" />
+          </div>
+          <h2 className="font-display text-3xl font-medium text-foreground mb-2">{t.codeTitle}</h2>
+          <p className="text-muted-foreground font-light">{t.codeSubtitle}</p>
+        </div>
+
+        <div className="max-w-xs mx-auto space-y-4">
+          <input
+            type="text"
+            value={code}
+            onChange={(e) => { setCode(e.target.value); setCodeError(false); }}
+            placeholder={t.codePlaceholder}
+            className={`${inputClass} text-center text-lg tracking-widest`}
+            maxLength={10}
+            autoFocus
+          />
+          {codeError && (
+            <p className="text-destructive text-sm text-center">{t.codeError}</p>
+          )}
+          <button
+            type="submit"
+            className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 px-6 rounded-sm text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            {t.codeSubmit}
+          </button>
+        </div>
+      </motion.form>
+    );
+  }
+
   return (
     <motion.form
       onSubmit={handleSubmit}
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
       className="space-y-6"
     >
       <div className="text-center mb-8">
