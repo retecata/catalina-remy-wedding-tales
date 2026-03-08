@@ -61,18 +61,10 @@ const Netherlands = () => {
       <motion.img
         src={dutchWindmills}
         alt=""
-        className="absolute top-24 right-0 w-[400px] md:w-[500px] opacity-[0.08] pointer-events-none select-none"
+        className="absolute top-20 right-0 w-[300px] md:w-[420px] opacity-50 pointer-events-none select-none"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.08 }}
+        animate={{ opacity: 0.5 }}
         transition={{ duration: 1.5 }}
-      />
-      <motion.img
-        src={dutchWindmills}
-        alt=""
-        className="absolute bottom-0 left-0 w-[350px] md:w-[450px] opacity-[0.06] pointer-events-none select-none rotate-180"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.06 }}
-        transition={{ duration: 1.5, delay: 0.3 }}
       />
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
