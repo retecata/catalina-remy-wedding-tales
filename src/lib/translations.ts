@@ -74,7 +74,7 @@ export const translations = {
       date: '5 September 2026',
       location: 'Brouwerskolkje, Overveen',
       description: 'Join us for our celebration in the Netherlands as we begin our journey together surrounded by friends and family.',
-      details: 'More details coming soon',
+      details: 'See details',
       rsvp: 'RSVP',
     },
     nl: {
@@ -82,7 +82,7 @@ export const translations = {
       date: '5 september 2026',
       location: 'Brouwerskolkje, Overveen',
       description: 'Vier met ons mee in Nederland terwijl we onze reis samen beginnen, omringd door vrienden en familie.',
-      details: 'Meer details volgen binnenkort',
+      details: 'Bekijk details',
       rsvp: 'RSVP',
     },
     ro: {
@@ -90,7 +90,7 @@ export const translations = {
       date: '5 septembrie 2026',
       location: 'Brouwerskolkje, Overveen',
       description: 'Alăturați-vă nouă pentru celebrarea din Olanda, în timp ce ne începem călătoria împreună, înconjurați de prieteni și familie.',
-      details: 'Mai multe detalii în curând',
+      details: 'Vezi detalii',
       rsvp: 'RSVP',
     },
   },
@@ -100,7 +100,7 @@ export const translations = {
       date: '11 September 2027',
       location: 'Sun Garden Resort, Cluj-Napoca',
       description: 'Celebrate with us in Romania as we honor our roots and share our joy with loved ones.',
-      details: 'More details coming soon',
+      details: 'See details',
       rsvp: 'RSVP',
     },
     nl: {
@@ -108,7 +108,7 @@ export const translations = {
       date: '11 september 2027',
       location: 'Sun Garden Resort, Cluj-Napoca',
       description: 'Vier met ons mee in Roemenië terwijl we onze wortels eren en onze vreugde delen met dierbaren.',
-      details: 'Meer details volgen binnenkort',
+      details: 'Bekijk details',
       rsvp: 'RSVP',
     },
     ro: {
@@ -116,7 +116,7 @@ export const translations = {
       date: '11 septembrie 2027',
       location: 'Sun Garden Resort, Cluj-Napoca',
       description: 'Sărbătoriți alături de noi în România, în timp ce ne onorăm rădăcinile și ne împărtășim bucuria cu cei dragi.',
-      details: 'Mai multe detalii în curând',
+      details: 'Vezi detalii',
       rsvp: 'RSVP',
     },
   },
