@@ -77,6 +77,7 @@ const Netherlands = () => {
   const sections = [
     { icon: Plane, title: info.travelTitle, text: info.travelText },
     { icon: Hotel, title: info.stayTitle, text: info.stayText },
+    { icon: Shirt, title: info.dressCodeTitle, text: info.dressCodeText },
     { icon: UtensilsCrossed, title: info.diningTitle, text: info.diningText },
   ];
 

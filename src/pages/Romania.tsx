@@ -60,6 +60,7 @@ const Romania = () => {
     { icon: Plane, title: info.travelTitle, text: info.travelText },
     { icon: Hotel, title: info.stayTitle, text: info.stayText },
     { icon: Clock, title: info.scheduleTitle, text: info.scheduleText },
+    { icon: Shirt, title: info.dressCodeTitle, text: info.dressCodeText },
     { icon: UtensilsCrossed, title: info.diningTitle, text: info.diningText },
   ];
 
