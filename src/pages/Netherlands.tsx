@@ -9,10 +9,6 @@ import { Language, translations, eventDates, countdownLabels } from '@/lib/trans
 import dutchWindmills from '@/assets/dutch-windmills.png';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import LanguageToggle from '@/components/LanguageToggle';
-import CountdownTimer from '@/components/CountdownTimer';
-import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
-import dutchWindmills from '@/assets/dutch-windmills.png';
 
 
 const travelInfo = {
@@ -56,6 +52,8 @@ const travelInfo = {
 
 const Netherlands = () => {
   const [lang, setLang] = useState<Language>('nl');
+  const [rsvpOpen, setRsvpOpen] = useState(false);
+  const navigate = useNavigate();
   const navigate = useNavigate();
   const t = translations.netherlands[lang];
   const info = travelInfo[lang];
@@ -109,7 +107,7 @@ const Netherlands = () => {
           </button>
           <div className="flex items-center gap-3">
             <button
-              onClick={() => document.getElementById('rsvp-section')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setRsvpOpen(true)}
               className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
               RSVP
@@ -211,11 +209,12 @@ const Netherlands = () => {
           ))}
         </div>
 
-        <div className="section-divider my-16" />
-
-        <div id="rsvp-section">
-          <RSVPForm event="netherlands" lang={lang} />
-        </div>
+        <Dialog open={rsvpOpen} onOpenChange={setRsvpOpen}>
+          <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
+            <VisuallyHidden><DialogTitle>RSVP</DialogTitle></VisuallyHidden>
+            <RSVPForm event="netherlands" lang={lang} />
+          </DialogContent>
+        </Dialog>
       </main>
 
       <footer className="py-12 text-center border-t border-border">
