@@ -84,7 +84,15 @@ const Romania = () => {
             <ArrowLeft className="w-4 h-4" />
             {info.back}
           </button>
-          <LanguageToggle current={lang} onChange={setLang} />
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => document.getElementById('rsvp-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              RSVP
+            </button>
+            <LanguageToggle current={lang} onChange={setLang} />
+          </div>
         </div>
       </header>
 
@@ -141,7 +149,9 @@ const Romania = () => {
 
         <div className="section-divider my-16" />
 
-        <RSVPForm event="romania" lang={lang} />
+        <div id="rsvp-section">
+          <RSVPForm event="romania" lang={lang} />
+        </div>
       </main>
 
       <footer className="py-12 text-center border-t border-border">
