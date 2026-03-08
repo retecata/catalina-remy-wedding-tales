@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar } from 'lucide-react';
 import LanguageToggle from './LanguageToggle';
-import { Language, translations } from '@/lib/translations';
+import CountdownTimer from './CountdownTimer';
+import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 
 interface CelebrationCardProps {
   event: 'netherlands' | 'romania';
@@ -48,7 +49,9 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
 
       <div className="section-divider" />
 
-      <p className="text-center text-sm text-muted-foreground italic">
+      <CountdownTimer targetDate={eventDates[event]} labels={countdownLabels[lang]} />
+
+      <p className="text-center text-sm text-muted-foreground italic mt-6">
         {t.details}
       </p>
     </motion.div>
