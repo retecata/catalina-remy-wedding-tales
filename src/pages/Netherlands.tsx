@@ -156,7 +156,7 @@ const Netherlands = () => {
                   <div className="absolute top-4 left-[calc(50%+12px)] right-0 h-px bg-accent w-full" />
                 )}
                 {/* Dot */}
-                <div className="relative z-10 w-8 h-8 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mb-3">
+                <div className="relative z-10 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center mb-3">
                   <div className="w-2 h-2 rounded-full bg-primary" />
                 </div>
                 {/* Time */}
