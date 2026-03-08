@@ -6,7 +6,7 @@ import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 import dutchWindmills from '@/assets/dutch-windmills.png';
-import schedule from '@/assets/schedule.svg';
+
 
 const travelInfo = {
   en: {
@@ -15,8 +15,7 @@ const travelInfo = {
     travelText: 'Brouwerskolkje is located in Overveen, in the heart of Bloemendaal\'s forested dunes. Fly into Amsterdam Schiphol Airport (AMS), then take a train to Haarlem (15 min) followed by bus 81 to Overveen, or rent a car for the 30-minute drive.',
     stayTitle: 'Where to Stay',
     stayText: 'We recommend staying in Haarlem or Bloemendaal. Hotels in Haarlem city centre are a short bus or taxi ride away. More specific suggestions will follow.',
-    scheduleTitle: 'Schedule',
-    scheduleText: 'A detailed schedule for the day will be shared closer to the date.',
+    scheduleTitle: 'Programme',
     diningTitle: 'Food & Drinks',
     diningText: 'Dinner and drinks will be provided at the venue. Please let us know of any dietary requirements when you RSVP.',
   },
@@ -27,7 +26,6 @@ const travelInfo = {
     stayTitle: 'Overnachten',
     stayText: 'We raden aan om te overnachten in Haarlem of Bloemendaal. Hotels in het centrum van Haarlem liggen op korte bus- of taxiafstand. Meer suggesties volgen.',
     scheduleTitle: 'Programma',
-    scheduleText: 'Een gedetailleerd programma wordt dichter bij de datum gedeeld.',
     diningTitle: 'Eten & Drinken',
     diningText: 'Diner en drankjes worden verzorgd op de locatie. Laat ons weten of je dieetwensen hebt bij je RSVP.',
   },
@@ -38,7 +36,6 @@ const travelInfo = {
     stayTitle: 'Cazare',
     stayText: 'Vă recomandăm cazare în Haarlem sau Bloemendaal. Hotelurile din centrul Haarlem sunt la distanță scurtă cu autobuzul sau taxiul. Mai multe sugestii vor urma.',
     scheduleTitle: 'Program',
-    scheduleText: 'Un program detaliat va fi distribuit mai aproape de dată.',
     diningTitle: 'Mâncare & Băuturi',
     diningText: 'Cina și băuturile vor fi asigurate la locație. Vă rugăm să ne anunțați dacă aveți cerințe alimentare speciale la RSVP.',
   },
@@ -50,10 +47,30 @@ const Netherlands = () => {
   const t = translations.netherlands[lang];
   const info = travelInfo[lang];
 
+  const scheduleItems: Record<Language, { time: string; label: string }[]> = {
+    en: [
+      { time: '16:00', label: 'Ceremony' },
+      { time: '17:00', label: 'Dinner' },
+      { time: '20:00', label: 'Dancing' },
+      { time: '23:00', label: 'The End' },
+    ],
+    nl: [
+      { time: '16:00', label: 'Ceremonie' },
+      { time: '17:00', label: 'Diner' },
+      { time: '20:00', label: 'Dansen' },
+      { time: '23:00', label: 'Einde' },
+    ],
+    ro: [
+      { time: '16:00', label: 'Ceremonie' },
+      { time: '17:00', label: 'Cină' },
+      { time: '20:00', label: 'Dans' },
+      { time: '23:00', label: 'Sfârșit' },
+    ],
+  };
+
   const sections = [
     { icon: Plane, title: info.travelTitle, text: info.travelText },
     { icon: Hotel, title: info.stayTitle, text: info.stayText },
-    { icon: Clock, title: info.scheduleTitle, text: info.scheduleText },
     { icon: UtensilsCrossed, title: info.diningTitle, text: info.diningText },
   ];
 
@@ -109,14 +126,39 @@ const Netherlands = () => {
 
         <div className="section-divider my-16" />
 
+        {/* Programme Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex justify-center mb-16"
+          className="mb-16"
         >
-          <img src={schedule} alt="Event schedule" className="max-w-sm w-full" />
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex-shrink-0 w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center">
+              <Clock className="w-5 h-5 text-primary" />
+            </div>
+            <h2 className="font-display text-xl font-medium text-foreground">{info.scheduleTitle}</h2>
+          </div>
+
+          <div className="relative pl-6 ml-5 border-l border-accent">
+            {scheduleItems[lang].map((item, i) => (
+              <motion.div
+                key={item.time}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="relative pb-8 last:pb-0"
+              >
+                <div className="absolute -left-[1.6rem] top-1 w-3 h-3 rounded-full bg-primary/20 border-2 border-primary" />
+                <div className="flex items-baseline gap-4">
+                  <span className="text-sm font-medium text-primary tabular-nums">{item.time}</span>
+                  <span className="text-muted-foreground font-light">{item.label}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         <div className="space-y-12">
