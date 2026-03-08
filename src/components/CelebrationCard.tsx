@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MapPin, Calendar } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight } from 'lucide-react';
 import LanguageToggle from './LanguageToggle';
 import CountdownTimer from './CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
@@ -13,6 +14,7 @@ interface CelebrationCardProps {
 
 const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => {
   const [lang, setLang] = useState<Language>(defaultLang);
+  const navigate = useNavigate();
   const t = translations[event][lang];
 
   return (
@@ -21,11 +23,12 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
       viewport={{ once: true }}
-      className="bg-card rounded-sm border border-border p-8 md:p-12 max-w-lg w-full"
+      onClick={() => navigate(`/${event}`)}
+      className="bg-card rounded-sm border border-border p-8 md:p-12 max-w-lg w-full cursor-pointer group hover:border-primary/30 transition-colors duration-300"
     >
       <div className="flex items-center justify-between mb-8">
         <span className="text-3xl">{flag}</span>
-        <LanguageToggle current={lang} onChange={setLang} />
+        <LanguageToggle current={lang} onChange={(l) => { l !== lang && setLang(l); }} />
       </div>
 
       <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
@@ -51,9 +54,10 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
 
       <CountdownTimer targetDate={eventDates[event]} labels={countdownLabels[lang]} />
 
-      <p className="text-center text-sm text-muted-foreground italic mt-6">
-        {t.details}
-      </p>
+      <div className="flex items-center justify-center gap-2 mt-6 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span>{t.details}</span>
+        <ArrowRight className="w-3.5 h-3.5" />
+      </div>
     </motion.div>
   );
 };

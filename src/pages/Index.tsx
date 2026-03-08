@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import heroBotanical from '@/assets/hero-botanical.png';
 import CelebrationCard from '@/components/CelebrationCard';
+import { Heart } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -62,6 +63,32 @@ const Index = () => {
         >
           <div className="w-px h-12 bg-border mx-auto animate-pulse" />
         </motion.div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="py-24 md:py-32 px-6 bg-card/50">
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <Heart className="w-5 h-5 text-primary mx-auto mb-6" />
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+              Our Story
+            </h2>
+            <p className="text-muted-foreground font-light leading-relaxed text-lg">
+              Our journey together began with a chance encounter and grew into something
+              beautiful. From the canals of the Netherlands to the mountains of Romania,
+              our love story spans two countries and two cultures, united by one bond.
+            </p>
+            <div className="section-divider" />
+            <p className="text-sm text-muted-foreground italic">
+              More of our story coming soon…
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Celebrations Section */}
