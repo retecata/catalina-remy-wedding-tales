@@ -6,6 +6,7 @@ import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 import romanianLandscape from '@/assets/romanian-landscape.png';
+import schedule from '@/assets/schedule.svg';
 
 const travelInfo = {
   en: {
@@ -107,6 +108,16 @@ const Romania = () => {
         </motion.div>
 
         <div className="section-divider my-16" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-16"
+        >
+          <img src={schedule} alt="Event schedule" className="max-w-sm w-full" />
+        </motion.div>
 
         <div className="space-y-12">
           {sections.map(({ icon: Icon, title, text }, i) => (
