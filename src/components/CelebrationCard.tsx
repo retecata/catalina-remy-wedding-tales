@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Calendar, ArrowRight } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
-import heroBg from '@/assets/hero-bg.png';
+import cardBg from '@/assets/card-bg.png';
 
 interface CelebrationCardProps {
   event: 'netherlands' | 'romania';
@@ -25,8 +25,8 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
       className="relative overflow-hidden bg-card rounded-sm border border-border p-8 md:p-12 max-w-lg w-full cursor-pointer group hover:border-primary/30 transition-colors duration-300 flex flex-col"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none"
+        style={{ backgroundImage: `url(${cardBg})` }}
       />
 
       <h3 className="relative z-10 font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
