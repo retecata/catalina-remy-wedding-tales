@@ -1,11 +1,43 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import heroBotanical from '@/assets/hero-botanical.png';
 import CelebrationCard from '@/components/CelebrationCard';
+import LanguageToggle from '@/components/LanguageToggle';
 import { Heart } from 'lucide-react';
+import { Language, pageTranslations } from '@/lib/translations';
+
+const StoryParagraph = ({ text }: { text: string }) => {
+  // Split on | delimiters to find quoted text
+  const parts = text.split('|');
+  return (
+    <p>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <span key={i} className="italic text-foreground">{part}</span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </p>
+  );
+};
 
 const Index = () => {
+  const [lang, setLang] = useState<Language>('en');
+  const t = pageTranslations[lang];
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Language Toggle - fixed top right */}
+      <motion.div
+        className="fixed top-6 right-6 z-50 bg-background/80 backdrop-blur-sm rounded-sm border border-border px-3 py-2"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      >
+        <LanguageToggle current={lang} onChange={setLang} />
+      </motion.div>
+
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
         <motion.img
@@ -24,7 +56,7 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            We're getting married
+            {t.gettingMarried}
           </motion.p>
 
           <motion.h1
@@ -51,7 +83,7 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1, duration: 0.8 }}
           >
-            Two celebrations, one love
+            {t.tagline}
           </motion.p>
         </div>
 
@@ -76,28 +108,12 @@ const Index = () => {
           >
             <Heart className="w-5 h-5 text-primary mx-auto mb-6" />
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              Our Story
+              {t.ourStoryTitle}
             </h2>
             <div className="space-y-6 text-muted-foreground font-light leading-relaxed text-lg text-left">
-              <p>
-                It was the tail end of the pandemic, and like many, we'd both found refuge in gaming. One day, fate queued us into the same Apex Legends match. After a few rounds of surprisingly good teamwork, Catalina turned to Remy and said:{' '}
-                <span className="italic text-foreground">"Can I be forever in your team?"</span>
-              </p>
-              <p>
-                What started with headsets and ping calls grew into late-night WhatsApp messages, endless Discord calls, and the kind of connection that makes the distance between Romania and the Netherlands feel like nothing at all.
-              </p>
-              <p>
-                Then came the leap of faith — Catalina flew to the Netherlands to meet Remy in person. A bit crazy in hindsight, perhaps, but from the very first moment they met, everything just clicked. Soon after, Remy made the trip to Romania.
-              </p>
-              <p>
-                <span className="italic text-foreground">"I don't know if this has a future,"</span> Catalina said honestly.{' '}
-                <span className="italic text-foreground">"I have a career in Dublin and I'm not willing to move right now."</span>{' '}
-                Without hesitation, Remy replied:{' '}
-                <span className="italic text-foreground">"No problem — I'll move."</span>
-              </p>
-              <p>
-                From that moment, his commitment never wavered. They lived together in Dublin for a year and a half before deciding to move to the Netherlands to be closer to his family. Is the Netherlands the final stop? They don't know yet — but wherever life takes them, they'll be in each other's team.
-              </p>
+              {t.story.map((paragraph, i) => (
+                <StoryParagraph key={i} text={paragraph} />
+              ))}
             </div>
           </motion.div>
         </div>
@@ -107,16 +123,16 @@ const Index = () => {
       <section className="py-24 md:py-32 px-6">
         <div className="max-w-5xl mx-auto text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-4">
-            Our Celebrations
+            {t.ourCelebrationsTitle}
           </h2>
           <p className="text-muted-foreground font-light max-w-md mx-auto">
-            We invite you to share in our joy across two beautiful countries
+            {t.ourCelebrationsSubtitle}
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-8 md:gap-12 max-w-5xl mx-auto">
-          <CelebrationCard event="netherlands" flag="🇳🇱" defaultLang="nl" />
-          <CelebrationCard event="romania" flag="🇷🇴" defaultLang="ro" />
+          <CelebrationCard event="netherlands" flag="🇳🇱" lang={lang} />
+          <CelebrationCard event="romania" flag="🇷🇴" lang={lang} />
         </div>
       </section>
 
@@ -126,7 +142,7 @@ const Index = () => {
           C & R
         </p>
         <p className="text-sm text-muted-foreground mt-2 font-light">
-          With love and gratitude
+          {t.footer}
         </p>
       </footer>
     </div>
