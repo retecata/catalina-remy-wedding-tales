@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt, Heart, Music, MoonStar } from 'lucide-react';
+import RSVPForm from '@/components/RSVPForm';
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
@@ -195,6 +196,10 @@ const Netherlands = () => {
             </motion.div>
           ))}
         </div>
+
+        <div className="section-divider my-16" />
+
+        <RSVPForm event="netherlands" lang={lang} />
       </main>
 
       <footer className="py-12 text-center border-t border-border">
