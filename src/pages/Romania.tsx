@@ -57,7 +57,6 @@ const Romania = () => {
   const [lang, setLang] = useState<Language>('ro');
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const navigate = useNavigate();
-  const navigate = useNavigate();
   const t = translations.romania[lang];
   const info = travelInfo[lang];
 

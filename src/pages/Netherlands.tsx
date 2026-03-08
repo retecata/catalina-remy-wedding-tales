@@ -54,7 +54,6 @@ const Netherlands = () => {
   const [lang, setLang] = useState<Language>('nl');
   const [rsvpOpen, setRsvpOpen] = useState(false);
   const navigate = useNavigate();
-  const navigate = useNavigate();
   const t = translations.netherlands[lang];
   const info = travelInfo[lang];
 
