@@ -163,7 +163,7 @@ const Netherlands = () => {
                   <div className="absolute top-4 left-[calc(50%+12px)] right-0 h-px bg-accent w-full" />
                 )}
                 {/* Icon */}
-                <div className="relative z-10 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                <div className="relative z-10 w-10 h-10 rounded-full bg-background flex items-center justify-center mb-3">
                   <item.icon className="w-4 h-4 text-primary" />
                 </div>
                 {/* Time */}
