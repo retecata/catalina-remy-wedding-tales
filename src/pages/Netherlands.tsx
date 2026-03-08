@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt } from 'lucide-react';
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
@@ -15,7 +15,9 @@ const travelInfo = {
     travelText: 'Brouwerskolkje is located in Overveen, in the heart of Bloemendaal\'s forested dunes. Fly into Amsterdam Schiphol Airport (AMS), then take a train to Haarlem (15 min) followed by bus 81 to Overveen, or rent a car for the 30-minute drive.',
     stayTitle: 'Where to Stay',
     stayText: 'We recommend staying in Haarlem or Bloemendaal. Hotels in Haarlem city centre are a short bus or taxi ride away. More specific suggestions will follow.',
-    scheduleTitle: 'Programme',
+     scheduleTitle: 'Programme',
+    dressCodeTitle: 'Dress Code',
+    dressCodeText: 'Formal attire. Think elegant suits, cocktail dresses, or evening wear.',
     diningTitle: 'Food & Drinks',
     diningText: 'Dinner and drinks will be provided at the venue. Please let us know of any dietary requirements when you RSVP.',
   },
@@ -25,7 +27,9 @@ const travelInfo = {
     travelText: 'Het Brouwerskolkje ligt in Overveen, in het groene hart van de gemeente Bloemendaal. Vlieg naar Schiphol (AMS), neem de trein naar Haarlem (15 min) en vervolgens bus 81 naar Overveen, of huur een auto (30 min rijden).',
     stayTitle: 'Overnachten',
     stayText: 'We raden aan om te overnachten in Haarlem of Bloemendaal. Hotels in het centrum van Haarlem liggen op korte bus- of taxiafstand. Meer suggesties volgen.',
-    scheduleTitle: 'Programma',
+     scheduleTitle: 'Programma',
+    dressCodeTitle: 'Dresscode',
+    dressCodeText: 'Formele kleding. Denk aan elegante pakken, cocktailjurken of avondkleding.',
     diningTitle: 'Eten & Drinken',
     diningText: 'Diner en drankjes worden verzorgd op de locatie. Laat ons weten of je dieetwensen hebt bij je RSVP.',
   },
@@ -35,7 +39,9 @@ const travelInfo = {
     travelText: 'Brouwerskolkje se află în Overveen, în inima dunelor împădurite din Bloemendaal. Zburați la Amsterdam Schiphol (AMS), apoi luați trenul spre Haarlem (15 min) și autobuzul 81 spre Overveen, sau închiriați o mașină (30 min).',
     stayTitle: 'Cazare',
     stayText: 'Vă recomandăm cazare în Haarlem sau Bloemendaal. Hotelurile din centrul Haarlem sunt la distanță scurtă cu autobuzul sau taxiul. Mai multe sugestii vor urma.',
-    scheduleTitle: 'Program',
+     scheduleTitle: 'Program',
+    dressCodeTitle: 'Cod Vestimentar',
+    dressCodeText: 'Ținută formală. Costume elegante, rochii de cocktail sau ținute de seară.',
     diningTitle: 'Mâncare & Băuturi',
     diningText: 'Cina și băuturile vor fi asigurate la locație. Vă rugăm să ne anunțați dacă aveți cerințe alimentare speciale la RSVP.',
   },
@@ -71,6 +77,7 @@ const Netherlands = () => {
   const sections = [
     { icon: Plane, title: info.travelTitle, text: info.travelText },
     { icon: Hotel, title: info.stayTitle, text: info.stayText },
+    { icon: Shirt, title: info.dressCodeTitle, text: info.dressCodeText },
     { icon: UtensilsCrossed, title: info.diningTitle, text: info.diningText },
   ];
 
