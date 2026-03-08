@@ -4,7 +4,7 @@ export const translations = {
   netherlands: {
     en: {
       title: 'The Netherlands Celebration',
-      date: 'Date to be announced',
+      date: '5 September 2026',
       location: 'Location to be announced',
       description: 'Join us for our celebration in the Netherlands as we begin our journey together surrounded by friends and family.',
       details: 'More details coming soon',
@@ -12,7 +12,7 @@ export const translations = {
     },
     nl: {
       title: 'Feest in Nederland',
-      date: 'Datum wordt nog aangekondigd',
+      date: '5 september 2026',
       location: 'Locatie wordt nog aangekondigd',
       description: 'Vier met ons mee in Nederland terwijl we onze reis samen beginnen, omringd door vrienden en familie.',
       details: 'Meer details volgen binnenkort',
