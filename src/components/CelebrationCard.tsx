@@ -37,12 +37,12 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
         {t.description}
       </p>
 
-      <div className="space-y-3 text-sm">
-        <div className="flex items-center gap-3 text-muted-foreground">
+      <div className="relative z-10 space-y-3 text-sm">
+        <div className="flex items-center gap-3 text-card-description">
           <Calendar className="w-4 h-4 text-primary" />
           <span>{t.date}</span>
         </div>
-        <div className="flex items-center gap-3 text-muted-foreground">
+        <div className="flex items-center gap-3 text-card-description">
           <MapPin className="w-4 h-4 text-primary" />
           <span>{t.location}</span>
         </div>
