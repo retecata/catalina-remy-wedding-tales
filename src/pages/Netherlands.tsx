@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt, Heart, Music, MoonStar } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt, Heart, Music, MoonStar, Send } from 'lucide-react';
 import RSVPForm from '@/components/RSVPForm';
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
@@ -104,15 +104,7 @@ const Netherlands = () => {
             <ArrowLeft className="w-4 h-4" />
             {info.back}
           </button>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setRsvpOpen(true)}
-              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-            >
-              RSVP
-            </button>
-            <LanguageToggle current={lang} onChange={setLang} />
-          </div>
+          <LanguageToggle current={lang} onChange={setLang} />
         </div>
       </header>
 
@@ -122,6 +114,14 @@ const Netherlands = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <button
+            onClick={() => setRsvpOpen(true)}
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-sm text-sm font-medium hover:bg-primary/90 transition-colors mb-8"
+          >
+            <Send className="w-4 h-4" />
+            RSVP
+          </button>
+
           <div className="flex flex-col sm:flex-row gap-4 text-sm mb-6">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Calendar className="w-4 h-4 text-primary" />
