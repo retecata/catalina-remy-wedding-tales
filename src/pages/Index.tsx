@@ -42,10 +42,10 @@ const Index = () => {
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
         <motion.img
           src={heroBotanical}
-          alt="Botanical decoration"
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] opacity-60 pointer-events-none select-none"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 0.6, y: 0 }}
+          alt=""
+          className="absolute -top-10 -right-32 w-[400px] md:w-[500px] opacity-50 pointer-events-none select-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
         />
 
