@@ -28,9 +28,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Language Toggle - fixed top right */}
+      {/* Language Toggle - fixed top left */}
       <motion.div
-        className="fixed top-6 right-6 z-50 bg-background/80 backdrop-blur-sm rounded-sm border border-border px-3 py-2"
+        className="fixed top-6 left-6 z-50 bg-background/80 backdrop-blur-sm rounded-sm border border-border px-3 py-2"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
