@@ -29,7 +29,7 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
         style={{ backgroundImage: `url(${heroBg})` }}
       />
 
-      <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
+      <h3 className="relative z-10 font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
         {t.title}
       </h3>
 
