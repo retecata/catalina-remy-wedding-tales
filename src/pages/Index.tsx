@@ -114,7 +114,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center md:items-stretch justify-center gap-8 md:gap-12 max-w-5xl mx-auto">
           <CelebrationCard event="netherlands" flag="🇳🇱" defaultLang="nl" />
           <CelebrationCard event="romania" flag="🇷🇴" defaultLang="ro" />
         </div>
