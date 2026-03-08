@@ -1,19 +1,16 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, ArrowRight } from 'lucide-react';
-import LanguageToggle from './LanguageToggle';
 import CountdownTimer from './CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 
 interface CelebrationCardProps {
   event: 'netherlands' | 'romania';
   flag: string;
-  defaultLang: Language;
+  lang: Language;
 }
 
-const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => {
-  const [lang, setLang] = useState<Language>(defaultLang);
+const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
   const navigate = useNavigate();
   const t = translations[event][lang];
 
@@ -28,9 +25,6 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
     >
       <div className="flex items-center justify-between mb-8">
         <span className="text-3xl">{flag}</span>
-        <div onClick={(e) => e.stopPropagation()}>
-          <LanguageToggle current={lang} onChange={setLang} />
-        </div>
       </div>
 
       <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
