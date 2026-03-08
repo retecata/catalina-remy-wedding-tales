@@ -85,15 +85,7 @@ const Romania = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-4xl mb-6 block">🇷🇴</span>
-          <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-4">
-            {t.title}
-          </h1>
-          <p className="text-muted-foreground font-light text-lg leading-relaxed mb-8">
-            {t.description}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 text-sm mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 text-sm mb-6">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Calendar className="w-4 h-4 text-primary" />
               <span>{t.date}</span>
@@ -103,6 +95,13 @@ const Romania = () => {
               <span>{t.location}</span>
             </div>
           </div>
+
+          <h1 className="font-display text-4xl md:text-5xl font-medium text-foreground mb-4">
+            {t.title}
+          </h1>
+          <p className="text-muted-foreground font-light text-lg leading-relaxed mb-8">
+            {t.description}
+          </p>
 
           <CountdownTimer targetDate={eventDates.romania} labels={countdownLabels[lang]} />
         </motion.div>
