@@ -7,6 +7,12 @@ import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 import romanianLandscape from '@/assets/romanian-landscape.png';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import LanguageToggle from '@/components/LanguageToggle';
+import CountdownTimer from '@/components/CountdownTimer';
+import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
+import romanianLandscape from '@/assets/romanian-landscape.png';
 
 
 const travelInfo = {
