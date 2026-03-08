@@ -24,7 +24,7 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
       transition={{ duration: 0.7, ease: 'easeOut' }}
       viewport={{ once: true }}
       onClick={() => navigate(`/${event}`)}
-      className="bg-card rounded-sm border border-border p-8 md:p-12 max-w-lg w-full cursor-pointer group hover:border-primary/30 transition-colors duration-300"
+      className="bg-card rounded-sm border border-border p-8 md:p-12 max-w-lg w-full cursor-pointer group hover:border-primary/30 transition-colors duration-300 flex flex-col"
     >
       <div className="flex items-center justify-between mb-8">
         <span className="text-3xl">{flag}</span>
