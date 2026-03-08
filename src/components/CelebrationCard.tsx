@@ -37,7 +37,7 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
         {t.title}
       </h3>
 
-      <p className="text-muted-foreground leading-relaxed mb-8 font-light">
+      <p className="text-muted-foreground leading-relaxed mb-8 font-light flex-grow">
         {t.description}
       </p>
 
