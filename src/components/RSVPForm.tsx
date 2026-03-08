@@ -37,7 +37,7 @@ const formTranslations: Record<Language, {
 }> = {
   en: {
     title: 'RSVP',
-    subtitle: 'We'd love to know if you can make it',
+    subtitle: "We'd love to know if you can make it",
     name: 'Your name',
     namePlaceholder: 'Full name',
     email: 'Email',
@@ -52,7 +52,7 @@ const formTranslations: Record<Language, {
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
-    successMessage: 'Your RSVP has been received. We can't wait to celebrate with you!',
+    successMessage: "Your RSVP has been received. We can't wait to celebrate with you!",
     errorMessage: 'Something went wrong. Please try again.',
   },
   nl: {
