@@ -42,7 +42,7 @@ export const translations = {
     en: {
       title: 'The Romania Celebration',
       date: '11 September 2027',
-      location: 'Location to be announced',
+      location: 'Sun Garden Resort, Cluj-Napoca',
       description: 'Celebrate with us in Romania as we honor our roots and share our joy with loved ones.',
       details: 'More details coming soon',
       rsvp: 'RSVP',
@@ -50,7 +50,7 @@ export const translations = {
     nl: {
       title: 'Feest in Roemenië',
       date: '11 september 2027',
-      location: 'Locatie wordt nog aangekondigd',
+      location: 'Sun Garden Resort, Cluj-Napoca',
       description: 'Vier met ons mee in Roemenië terwijl we onze wortels eren en onze vreugde delen met dierbaren.',
       details: 'Meer details volgen binnenkort',
       rsvp: 'RSVP',
@@ -58,7 +58,7 @@ export const translations = {
     ro: {
       title: 'Celebrarea din România',
       date: '11 septembrie 2027',
-      location: 'Locația va fi anunțată',
+      location: 'Sun Garden Resort, Cluj-Napoca',
       description: 'Sărbătoriți alături de noi în România, în timp ce ne onorăm rădăcinile și ne împărtășim bucuria cu cei dragi.',
       details: 'Mai multe detalii în curând',
       rsvp: 'RSVP',
