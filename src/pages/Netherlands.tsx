@@ -5,6 +5,7 @@ import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock } fro
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
+import dutchWindmills from '@/assets/dutch-windmills.png';
 
 const travelInfo = {
   en: {
@@ -56,7 +57,23 @@ const Netherlands = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <motion.img
+        src={dutchWindmills}
+        alt=""
+        className="absolute top-24 right-0 w-[400px] md:w-[500px] opacity-[0.08] pointer-events-none select-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.08 }}
+        transition={{ duration: 1.5 }}
+      />
+      <motion.img
+        src={dutchWindmills}
+        alt=""
+        className="absolute bottom-0 left-0 w-[350px] md:w-[450px] opacity-[0.06] pointer-events-none select-none rotate-180"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.06 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+      />
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <button
