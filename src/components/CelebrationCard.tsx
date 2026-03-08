@@ -33,7 +33,7 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
         {t.title}
       </h3>
 
-      <p className="relative z-10 leading-relaxed mb-8 font-light flex-grow" style={{ color: 'hsl(var(--card-description))' }}>
+      <p className="relative z-10 text-card-description leading-relaxed mb-8 font-light flex-grow">
         {t.description}
       </p>
 
