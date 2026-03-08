@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt, Send } from 'lucide-react';
-import RSVPForm from '@/components/RSVPForm';
+import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt } from 'lucide-react';
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 import romanianLandscape from '@/assets/romanian-landscape.png';
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 
 const travelInfo = {
@@ -55,7 +52,6 @@ const travelInfo = {
 
 const Romania = () => {
   const [lang, setLang] = useState<Language>('ro');
-  const [rsvpOpen, setRsvpOpen] = useState(false);
   const navigate = useNavigate();
   const t = translations.romania[lang];
   const info = travelInfo[lang];
@@ -97,13 +93,10 @@ const Romania = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <button
-            onClick={() => setRsvpOpen(true)}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-sm text-sm font-medium hover:bg-primary/90 transition-colors mb-8"
-          >
-            <Send className="w-4 h-4" />
-            RSVP
-          </button>
+          <div className="inline-flex items-center gap-2 bg-muted text-muted-foreground px-6 py-3 rounded-sm text-sm font-light italic mb-8">
+            <Clock className="w-4 h-4" />
+            {lang === 'ro' ? 'Mai multe detalii în curând — reveniți!' : lang === 'nl' ? 'Meer details volgen binnenkort — kom later terug!' : 'More details coming soon — check back later!'}
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 text-sm mb-6">
             <div className="flex items-center gap-2 text-muted-foreground">
@@ -150,12 +143,6 @@ const Romania = () => {
           ))}
         </div>
 
-        <Dialog open={rsvpOpen} onOpenChange={setRsvpOpen}>
-          <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
-            <VisuallyHidden><DialogTitle>RSVP</DialogTitle></VisuallyHidden>
-            <RSVPForm event="romania" lang={lang} />
-          </DialogContent>
-        </Dialog>
       </main>
 
       <footer className="py-12 text-center border-t border-border">
