@@ -97,13 +97,10 @@ const Romania = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <button
-            onClick={() => setRsvpOpen(true)}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-sm text-sm font-medium hover:bg-primary/90 transition-colors mb-8"
-          >
-            <Send className="w-4 h-4" />
-            RSVP
-          </button>
+          <div className="inline-flex items-center gap-2 bg-muted text-muted-foreground px-6 py-3 rounded-sm text-sm font-light italic mb-8">
+            <Clock className="w-4 h-4" />
+            {lang === 'ro' ? 'Mai multe detalii în curând — reveniți!' : lang === 'nl' ? 'Meer details volgen binnenkort — kom later terug!' : 'More details coming soon — check back later!'}
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 text-sm mb-6">
             <div className="flex items-center gap-2 text-muted-foreground">
