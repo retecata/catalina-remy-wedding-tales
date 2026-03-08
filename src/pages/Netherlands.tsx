@@ -32,13 +32,13 @@ const travelInfo = {
   ro: {
     back: 'Înapoi',
     travelTitle: 'Cum ajungi',
-    travelText: 'Olanda este bine conectată prin aeroportul Amsterdam Schiphol (AMS). De acolo, trenuri și autobuze conectează orașele din toată țara.',
+    travelText: 'Brouwerskolkje se află în Overveen, în inima dunelor împădurite din Bloemendaal. Zburați la Amsterdam Schiphol (AMS), apoi luați trenul spre Haarlem (15 min) și autobuzul 81 spre Overveen, sau închiriați o mașină (30 min).',
     stayTitle: 'Cazare',
-    stayText: 'Vă recomandăm să rezervați cazare în apropiere. Sugestii specifice de hoteluri vor fi oferite odată ce locația este confirmată.',
+    stayText: 'Vă recomandăm cazare în Haarlem sau Bloemendaal. Hotelurile din centrul Haarlem sunt la distanță scurtă cu autobuzul sau taxiul. Mai multe sugestii vor urma.',
     scheduleTitle: 'Program',
     scheduleText: 'Un program detaliat va fi distribuit mai aproape de dată.',
     diningTitle: 'Mâncare & Băuturi',
-    diningText: 'Cina și băuturile vor fi asigurate. Vă rugăm să ne anunțați dacă aveți cerințe alimentare speciale la RSVP.',
+    diningText: 'Cina și băuturile vor fi asigurate la locație. Vă rugăm să ne anunțați dacă aveți cerințe alimentare speciale la RSVP.',
   },
 };
 
