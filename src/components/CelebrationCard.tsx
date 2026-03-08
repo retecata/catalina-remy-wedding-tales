@@ -49,7 +49,9 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
 
       <div className="section-divider" />
 
-      <p className="text-center text-sm text-muted-foreground italic">
+      <CountdownTimer targetDate={eventDates[event]} labels={countdownLabels[lang]} />
+
+      <p className="text-center text-sm text-muted-foreground italic mt-6">
         {t.details}
       </p>
     </motion.div>
