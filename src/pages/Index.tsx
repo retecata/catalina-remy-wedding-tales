@@ -78,15 +78,27 @@ const Index = () => {
             <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
               Our Story
             </h2>
-            <p className="text-muted-foreground font-light leading-relaxed text-lg">
-              Our journey together began with a chance encounter and grew into something
-              beautiful. From the canals of the Netherlands to the mountains of Romania,
-              our love story spans two countries and two cultures, united by one bond.
-            </p>
-            <div className="section-divider" />
-            <p className="text-sm text-muted-foreground italic">
-              More of our story coming soon…
-            </p>
+            <div className="space-y-6 text-muted-foreground font-light leading-relaxed text-lg text-left">
+              <p>
+                It was the tail end of the pandemic, and like many, we'd both found refuge in gaming. One day, fate queued us into the same Apex Legends match. After a few rounds of surprisingly good teamwork, Catalina turned to Remy and said:{' '}
+                <span className="italic text-foreground">"Can I be forever in your team?"</span>
+              </p>
+              <p>
+                What started with headsets and ping calls grew into late-night WhatsApp messages, endless Discord calls, and the kind of connection that makes the distance between Romania and the Netherlands feel like nothing at all.
+              </p>
+              <p>
+                Then came the leap of faith — Catalina flew to the Netherlands to meet Remy in person. A bit crazy in hindsight, perhaps, but from the very first moment they met, everything just clicked. Soon after, Remy made the trip to Romania.
+              </p>
+              <p>
+                <span className="italic text-foreground">"I don't know if this has a future,"</span> Catalina said honestly.{' '}
+                <span className="italic text-foreground">"I have a career in Dublin and I'm not willing to move right now."</span>{' '}
+                Without hesitation, Remy replied:{' '}
+                <span className="italic text-foreground">"No problem — I'll move."</span>
+              </p>
+              <p>
+                From that moment, his commitment never wavered. They lived together in Dublin for a year and a half before deciding to move to the Netherlands to be closer to his family. Is the Netherlands the final stop? They don't know yet — but wherever life takes them, they'll be in each other's team.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
