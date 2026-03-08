@@ -16,7 +16,7 @@ export const translations = {
     en: {
       title: 'The Netherlands Celebration',
       date: '5 September 2026',
-      location: 'Location to be announced',
+      location: 'Brouwerskolkje, Overveen',
       description: 'Join us for our celebration in the Netherlands as we begin our journey together surrounded by friends and family.',
       details: 'More details coming soon',
       rsvp: 'RSVP',
@@ -24,7 +24,7 @@ export const translations = {
     nl: {
       title: 'Feest in Nederland',
       date: '5 september 2026',
-      location: 'Locatie wordt nog aangekondigd',
+      location: 'Brouwerskolkje, Overveen',
       description: 'Vier met ons mee in Nederland terwijl we onze reis samen beginnen, omringd door vrienden en familie.',
       details: 'Meer details volgen binnenkort',
       rsvp: 'RSVP',
@@ -32,7 +32,7 @@ export const translations = {
     ro: {
       title: 'Celebrarea din Olanda',
       date: '5 septembrie 2026',
-      location: 'Locația va fi anunțată',
+      location: 'Brouwerskolkje, Overveen',
       description: 'Alăturați-vă nouă pentru celebrarea din Olanda, în timp ce ne începem călătoria împreună, înconjurați de prieteni și familie.',
       details: 'Mai multe detalii în curând',
       rsvp: 'RSVP',
