@@ -52,7 +52,7 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
 
       <CountdownTimer targetDate={eventDates[event]} labels={countdownLabels[lang]} />
 
-      <div className="flex items-center justify-center gap-2 mt-6 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="relative z-10 flex items-center justify-center gap-2 mt-6 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <span>{t.details}</span>
         <ArrowRight className="w-3.5 h-3.5" />
       </div>
