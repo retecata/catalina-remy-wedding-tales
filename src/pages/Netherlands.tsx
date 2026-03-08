@@ -6,7 +6,7 @@ import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 import dutchWindmills from '@/assets/dutch-windmills.png';
-import schedule from '@/assets/schedule.svg';
+
 
 const travelInfo = {
   en: {
@@ -15,8 +15,7 @@ const travelInfo = {
     travelText: 'Brouwerskolkje is located in Overveen, in the heart of Bloemendaal\'s forested dunes. Fly into Amsterdam Schiphol Airport (AMS), then take a train to Haarlem (15 min) followed by bus 81 to Overveen, or rent a car for the 30-minute drive.',
     stayTitle: 'Where to Stay',
     stayText: 'We recommend staying in Haarlem or Bloemendaal. Hotels in Haarlem city centre are a short bus or taxi ride away. More specific suggestions will follow.',
-    scheduleTitle: 'Schedule',
-    scheduleText: 'A detailed schedule for the day will be shared closer to the date.',
+    scheduleTitle: 'Programme',
     diningTitle: 'Food & Drinks',
     diningText: 'Dinner and drinks will be provided at the venue. Please let us know of any dietary requirements when you RSVP.',
   },
@@ -27,7 +26,6 @@ const travelInfo = {
     stayTitle: 'Overnachten',
     stayText: 'We raden aan om te overnachten in Haarlem of Bloemendaal. Hotels in het centrum van Haarlem liggen op korte bus- of taxiafstand. Meer suggesties volgen.',
     scheduleTitle: 'Programma',
-    scheduleText: 'Een gedetailleerd programma wordt dichter bij de datum gedeeld.',
     diningTitle: 'Eten & Drinken',
     diningText: 'Diner en drankjes worden verzorgd op de locatie. Laat ons weten of je dieetwensen hebt bij je RSVP.',
   },
@@ -38,7 +36,6 @@ const travelInfo = {
     stayTitle: 'Cazare',
     stayText: 'Vă recomandăm cazare în Haarlem sau Bloemendaal. Hotelurile din centrul Haarlem sunt la distanță scurtă cu autobuzul sau taxiul. Mai multe sugestii vor urma.',
     scheduleTitle: 'Program',
-    scheduleText: 'Un program detaliat va fi distribuit mai aproape de dată.',
     diningTitle: 'Mâncare & Băuturi',
     diningText: 'Cina și băuturile vor fi asigurate la locație. Vă rugăm să ne anunțați dacă aveți cerințe alimentare speciale la RSVP.',
   },
