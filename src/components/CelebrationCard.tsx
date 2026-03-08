@@ -28,7 +28,9 @@ const CelebrationCard = ({ event, flag, defaultLang }: CelebrationCardProps) => 
     >
       <div className="flex items-center justify-between mb-8">
         <span className="text-3xl">{flag}</span>
-        <LanguageToggle current={lang} onChange={(l) => { l !== lang && setLang(l); }} />
+        <div onClick={(e) => e.stopPropagation()}>
+          <LanguageToggle current={lang} onChange={setLang} />
+        </div>
       </div>
 
       <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground mb-6">
