@@ -1,5 +1,16 @@
 export type Language = 'en' | 'nl' | 'ro';
 
+export const eventDates = {
+  netherlands: new Date('2026-09-05T00:00:00'),
+  romania: new Date('2027-09-11T00:00:00'),
+};
+
+export const countdownLabels: Record<Language, { days: string; hours: string; minutes: string; seconds: string }> = {
+  en: { days: 'Days', hours: 'Hours', minutes: 'Min', seconds: 'Sec' },
+  nl: { days: 'Dagen', hours: 'Uren', minutes: 'Min', seconds: 'Sec' },
+  ro: { days: 'Zile', hours: 'Ore', minutes: 'Min', seconds: 'Sec' },
+};
+
 export const translations = {
   netherlands: {
     en: {
@@ -20,7 +31,7 @@ export const translations = {
     },
     ro: {
       title: 'Celebrarea din Olanda',
-      date: 'Data va fi anunțată',
+      date: '5 septembrie 2026',
       location: 'Locația va fi anunțată',
       description: 'Alăturați-vă nouă pentru celebrarea din Olanda, în timp ce ne începem călătoria împreună, înconjurați de prieteni și familie.',
       details: 'Mai multe detalii în curând',
@@ -30,7 +41,7 @@ export const translations = {
   romania: {
     en: {
       title: 'The Romania Celebration',
-      date: 'Date to be announced',
+      date: '11 September 2027',
       location: 'Location to be announced',
       description: 'Celebrate with us in Romania as we honor our roots and share our joy with loved ones.',
       details: 'More details coming soon',
@@ -38,7 +49,7 @@ export const translations = {
     },
     nl: {
       title: 'Feest in Roemenië',
-      date: 'Datum wordt nog aangekondigd',
+      date: '11 september 2027',
       location: 'Locatie wordt nog aangekondigd',
       description: 'Vier met ons mee in Roemenië terwijl we onze wortels eren en onze vreugde delen met dierbaren.',
       details: 'Meer details volgen binnenkort',
@@ -46,7 +57,7 @@ export const translations = {
     },
     ro: {
       title: 'Celebrarea din România',
-      date: 'Data va fi anunțată',
+      date: '11 septembrie 2027',
       location: 'Locația va fi anunțată',
       description: 'Sărbătoriți alături de noi în România, în timp ce ne onorăm rădăcinile și ne împărtășim bucuria cu cei dragi.',
       details: 'Mai multe detalii în curând',
