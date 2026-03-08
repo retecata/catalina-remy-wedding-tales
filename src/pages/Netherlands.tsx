@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt, Heart, Music, MoonStar } from 'lucide-react';
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
@@ -53,24 +53,24 @@ const Netherlands = () => {
   const t = translations.netherlands[lang];
   const info = travelInfo[lang];
 
-  const scheduleItems: Record<Language, { time: string; label: string }[]> = {
+  const scheduleItems: Record<Language, { time: string; label: string; icon: typeof Heart }[]> = {
     en: [
-      { time: '16:00', label: 'Ceremony' },
-      { time: '17:00', label: 'Dinner' },
-      { time: '20:00', label: 'Dancing' },
-      { time: '23:00', label: 'The End' },
+      { time: '16:00', label: 'Ceremony', icon: Heart },
+      { time: '17:00', label: 'Dinner', icon: UtensilsCrossed },
+      { time: '20:00', label: 'Dancing', icon: Music },
+      { time: '23:00', label: 'The End', icon: MoonStar },
     ],
     nl: [
-      { time: '16:00', label: 'Ceremonie' },
-      { time: '17:00', label: 'Diner' },
-      { time: '20:00', label: 'Dansen' },
-      { time: '23:00', label: 'Einde' },
+      { time: '16:00', label: 'Ceremonie', icon: Heart },
+      { time: '17:00', label: 'Diner', icon: UtensilsCrossed },
+      { time: '20:00', label: 'Dansen', icon: Music },
+      { time: '23:00', label: 'Einde', icon: MoonStar },
     ],
     ro: [
-      { time: '16:00', label: 'Ceremonie' },
-      { time: '17:00', label: 'Cină' },
-      { time: '20:00', label: 'Dans' },
-      { time: '23:00', label: 'Sfârșit' },
+      { time: '16:00', label: 'Ceremonie', icon: Heart },
+      { time: '17:00', label: 'Cină', icon: UtensilsCrossed },
+      { time: '20:00', label: 'Dans', icon: Music },
+      { time: '23:00', label: 'Sfârșit', icon: MoonStar },
     ],
   };
 
@@ -162,9 +162,9 @@ const Netherlands = () => {
                 {i < scheduleItems[lang].length - 1 && (
                   <div className="absolute top-4 left-[calc(50%+12px)] right-0 h-px bg-accent w-full" />
                 )}
-                {/* Dot */}
-                <div className="relative z-10 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center mb-3">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
+                {/* Icon */}
+                <div className="relative z-10 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                  <item.icon className="w-4 h-4 text-primary" />
                 </div>
                 {/* Time */}
                 <span className="font-display text-lg font-medium text-foreground tabular-nums mb-1">{item.time}</span>
