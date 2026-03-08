@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import heroBotanical from '@/assets/hero-botanical.png';
+import heroBg from '@/assets/hero-bg.png';
 import CelebrationCard from '@/components/CelebrationCard';
 import LanguageToggle from '@/components/LanguageToggle';
 import { Heart } from 'lucide-react';
@@ -40,13 +40,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
-        <motion.img
-          src={heroBotanical}
-          alt=""
-          className="absolute -top-10 -right-32 w-[400px] md:w-[500px] opacity-50 pointer-events-none select-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBg})` }}
         />
 
         <div className="relative z-10 mt-32 md:mt-40">
