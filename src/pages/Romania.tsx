@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Plane, Hotel, UtensilsCrossed, Clock, Shirt } from 'lucide-react';
 import LanguageToggle from '@/components/LanguageToggle';
 import CountdownTimer from '@/components/CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
@@ -15,8 +15,10 @@ const travelInfo = {
     travelText: 'Sun Garden Golf & Spa Resort is located near Cluj-Napoca. Fly into Cluj-Napoca International Airport (CLJ) — the resort is just a 15-minute drive away. Alternatively, fly to Bucharest (OTP) and take a domestic flight or train to Cluj.',
     stayTitle: 'Where to Stay',
     stayText: 'The resort itself offers beautiful accommodation with spa, golf, and restaurant facilities. We highly recommend staying on-site to enjoy the full experience. We\'ll share booking details and group rates soon.',
-    scheduleTitle: 'Schedule',
+     scheduleTitle: 'Schedule',
     scheduleText: 'A detailed schedule for the celebration will be shared closer to the date.',
+    dressCodeTitle: 'Dress Code',
+    dressCodeText: 'Formal attire. Think elegant suits, cocktail dresses, or evening wear.',
     diningTitle: 'Food & Drinks',
     diningText: 'A traditional Romanian feast will be served at the resort. Please let us know of any dietary requirements when you RSVP.',
   },
@@ -26,8 +28,10 @@ const travelInfo = {
     travelText: 'Sun Garden Golf & Spa Resort ligt vlakbij Cluj-Napoca. Vlieg naar Cluj-Napoca International Airport (CLJ) — het resort is slechts 15 minuten rijden. Je kunt ook naar Boekarest (OTP) vliegen en een binnenlandse vlucht of trein naar Cluj nemen.',
     stayTitle: 'Overnachten',
     stayText: 'Het resort zelf biedt prachtige accommodatie met spa, golf en restaurant. We raden sterk aan om op het resort te verblijven. Boekingsdetails en groepstarieven volgen binnenkort.',
-    scheduleTitle: 'Programma',
+     scheduleTitle: 'Programma',
     scheduleText: 'Een gedetailleerd programma wordt dichter bij de datum gedeeld.',
+    dressCodeTitle: 'Dresscode',
+    dressCodeText: 'Formele kleding. Denk aan elegante pakken, cocktailjurken of avondkleding.',
     diningTitle: 'Eten & Drinken',
     diningText: 'Een traditioneel Roemeens feestmaal wordt geserveerd in het resort. Laat ons weten of je dieetwensen hebt bij je RSVP.',
   },
@@ -37,8 +41,10 @@ const travelInfo = {
     travelText: 'Sun Garden Golf & Spa Resort se află lângă Cluj-Napoca. Zburați la Aeroportul Internațional Cluj-Napoca (CLJ) — resortul este la doar 15 minute cu mașina. Alternativ, zburați la București (OTP) și luați un zbor intern sau tren spre Cluj.',
     stayTitle: 'Cazare',
     stayText: 'Resortul oferă cazare superbă cu facilități de spa, golf și restaurant. Vă recomandăm cu căldură să vă cazați la resort. Detalii de rezervare și tarife de grup vor fi distribuite în curând.',
-    scheduleTitle: 'Program',
+     scheduleTitle: 'Program',
     scheduleText: 'Un program detaliat va fi distribuit mai aproape de dată.',
+    dressCodeTitle: 'Cod Vestimentar',
+    dressCodeText: 'Ținută formală. Costume elegante, rochii de cocktail sau ținute de seară.',
     diningTitle: 'Mâncare & Băuturi',
     diningText: 'Va fi servit un festin tradițional românesc la resort. Vă rugăm să ne anunțați dacă aveți cerințe alimentare speciale la RSVP.',
   },
