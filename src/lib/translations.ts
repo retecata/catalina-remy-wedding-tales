@@ -89,7 +89,7 @@ export const translations = {
       title: 'Celebrarea din Olanda',
       date: '5 septembrie 2026',
       location: 'Brouwerskolkje, Overveen',
-      description: 'Alăturați-vă nouă pentru celebrarea din Olanda, în timp ce ne începem călătoria împreună, înconjurați de prieteni și familie.',
+      description: 'Petrecerea noastră principală de nuntă va avea loc în România pe 11 septembrie 2027.\n\nOrganizam o petrecere mai mică în Olanda pentru prietenii și familia care sunt deja aici sau pentru cei care nu pot ajunge in Romania.\n\nAbia așteptăm să sărbătorim împreună cu toată lumea și în România.',
       details: 'Vezi detalii',
       rsvp: 'RSVP',
     },
