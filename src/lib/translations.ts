@@ -73,7 +73,7 @@ export const translations = {
       title: 'The Netherlands Celebration',
       date: '5 September 2026',
       location: 'Brouwerskolkje, Overveen',
-      description: 'Join us for our celebration in the Netherlands as we begin our journey together surrounded by friends and family.',
+      description: 'Our main wedding celebration will take place in Romania on 11 September 2027.\n\nWe\'re also hosting a smaller celebration in the Netherlands for friends and family who are already here or may not be able to travel.\n\nWe can\'t wait to celebrate with everyone in Romania as well.',
       details: 'See details',
       rsvp: 'RSVP',
     },
