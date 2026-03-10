@@ -81,7 +81,7 @@ export const translations = {
       title: 'Feest in Nederland',
       date: '5 september 2026',
       location: 'Brouwerskolkje, Overveen',
-      description: 'Vier met ons mee in Nederland terwijl we onze reis samen beginnen, omringd door vrienden en familie.',
+      description: 'Onze belangrijkste huwelijksviering vindt plaats in Roemenië op 11 september 2027.\n\nDaarnaast organiseren we een kleinere viering in Nederland voor vrienden en familie die hier wonen of voor wie reizen naar Roemenië lastig is.\n\nWe kijken ernaar uit om ook in Roemenië met iedereen samen te vieren.',
       details: 'Bekijk details',
       rsvp: 'RSVP',
     },
