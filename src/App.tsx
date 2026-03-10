@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Netherlands from "./pages/Netherlands";
 import Romania from "./pages/Romania";
 import NotFound from "./pages/NotFound";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
