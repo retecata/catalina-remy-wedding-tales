@@ -95,8 +95,8 @@ const Index = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24 md:py-32 px-6 bg-card/50">
-        <div className="relative max-w-4xl mx-auto">
+      <section className="py-24 md:py-32 px-6 lg:px-24 bg-card/50">
+        <div className="relative max-w-4xl mx-auto lg:px-16">
           {/* Polaroid frames - left side */}
           <motion.div
             className="hidden lg:block absolute -left-16 top-8"
