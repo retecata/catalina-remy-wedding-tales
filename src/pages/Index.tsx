@@ -101,48 +101,44 @@ const Index = () => {
         <div className="relative max-w-4xl mx-auto lg:px-16">
           {/* Polaroid frames - left side */}
           <motion.div
-            className="hidden lg:block absolute -left-16 top-8"
+            className="hidden xl:block absolute -left-32 top-8"
             initial={{ opacity: 0, rotate: -8 }}
             whileInView={{ opacity: 1, rotate: -6 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <div className="bg-white p-3 pb-12 shadow-md rotate-[-6deg] w-44">
-              <img src={polaroid1} alt="Catalina and Remy" className="w-full h-32 object-cover" />
+              <img src={polaroid1} alt="Catalina and Remy in India" className="w-full h-32 object-cover" />
             </div>
           </motion.div>
 
           <motion.div
-            className="hidden lg:block absolute -left-8 top-64"
+            className="hidden xl:block absolute -left-24 top-72"
             initial={{ opacity: 0, rotate: 4 }}
             whileInView={{ opacity: 1, rotate: 3 }}
             transition={{ duration: 0.7, delay: 0.4 }}
             viewport={{ once: true }}
           >
             <div className="bg-white p-3 pb-12 shadow-md rotate-[3deg] w-40">
-              <div className="w-full h-28 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Photo</span>
-              </div>
+              <img src={polaroid2} alt="Catalina and Remy in costume" className="w-full h-28 object-cover" />
             </div>
           </motion.div>
 
           {/* Polaroid frames - right side */}
           <motion.div
-            className="hidden lg:block absolute -right-16 top-16"
+            className="hidden xl:block absolute -right-32 top-16"
             initial={{ opacity: 0, rotate: 6 }}
             whileInView={{ opacity: 1, rotate: 5 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: true }}
           >
             <div className="bg-white p-3 pb-12 shadow-md rotate-[5deg] w-44">
-              <div className="w-full h-32 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Photo</span>
-              </div>
+              <img src={polaroid3} alt="Catalina and Remy at King's Day" className="w-full h-32 object-cover" />
             </div>
           </motion.div>
 
           <motion.div
-            className="hidden lg:block absolute -right-10 top-72"
+            className="hidden xl:block absolute -right-24 top-80"
             initial={{ opacity: 0, rotate: -4 }}
             whileInView={{ opacity: 1, rotate: -3 }}
             transition={{ duration: 0.7, delay: 0.5 }}
