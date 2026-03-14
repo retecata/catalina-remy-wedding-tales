@@ -81,7 +81,7 @@ export const translations = {
       title: 'Feest in Nederland',
       date: '5 september 2026',
       location: 'Brouwerskolkje, Overveen',
-      description: 'De grote bruiloft vindt plaats in Roemenië op 11 september 2027.\n\nOmdat niet iedereen in staat is om naar Roemenië af te reizen, hebben we besloten ook hier lokaal een bruiloft te vieren zodat iedereen dit met ons kan vieren.',
+      description: 'De grote bruiloft vindt plaats in Roemenië op 11 september 2027.\n\nVoor een aantal van onze dierbaren organiseren we alvast een intieme viering hier in Nederland — maar het echte feest volgt nog, en daar hopen we iedereen bij te hebben!',
       details: 'Bekijk details',
       rsvp: 'RSVP',
     },
