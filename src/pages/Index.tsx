@@ -95,23 +95,84 @@ const Index = () => {
 
       {/* Our Story Section */}
       <section className="py-24 md:py-32 px-6 bg-card/50">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="relative max-w-4xl mx-auto">
+          {/* Polaroid frames - left side */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            className="hidden lg:block absolute -left-16 top-8"
+            initial={{ opacity: 0, rotate: -8 }}
+            whileInView={{ opacity: 1, rotate: -6 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Heart className="w-5 h-5 text-primary mx-auto mb-6" />
-            <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
-              {t.ourStoryTitle}
-            </h2>
-            <div className="space-y-6 text-muted-foreground font-light leading-relaxed text-lg text-left">
-              {t.story.map((paragraph, i) => (
-                <StoryParagraph key={i} text={paragraph} />
-              ))}
+            <div className="bg-white p-3 pb-12 shadow-md rotate-[-6deg] w-44">
+              <div className="w-full h-32 bg-muted flex items-center justify-center">
+                <span className="text-muted-foreground text-xs">Photo</span>
+              </div>
             </div>
           </motion.div>
+
+          <motion.div
+            className="hidden lg:block absolute -left-8 top-64"
+            initial={{ opacity: 0, rotate: 4 }}
+            whileInView={{ opacity: 1, rotate: 3 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white p-3 pb-12 shadow-md rotate-[3deg] w-40">
+              <div className="w-full h-28 bg-muted flex items-center justify-center">
+                <span className="text-muted-foreground text-xs">Photo</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Polaroid frames - right side */}
+          <motion.div
+            className="hidden lg:block absolute -right-16 top-16"
+            initial={{ opacity: 0, rotate: 6 }}
+            whileInView={{ opacity: 1, rotate: 5 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white p-3 pb-12 shadow-md rotate-[5deg] w-44">
+              <div className="w-full h-32 bg-muted flex items-center justify-center">
+                <span className="text-muted-foreground text-xs">Photo</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="hidden lg:block absolute -right-10 top-72"
+            initial={{ opacity: 0, rotate: -4 }}
+            whileInView={{ opacity: 1, rotate: -3 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white p-3 pb-12 shadow-md rotate-[-3deg] w-40">
+              <div className="w-full h-28 bg-muted flex items-center justify-center">
+                <span className="text-muted-foreground text-xs">Photo</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Story content */}
+          <div className="max-w-2xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <Heart className="w-5 h-5 text-primary mx-auto mb-6" />
+              <h2 className="font-display text-3xl md:text-4xl font-medium text-foreground mb-6">
+                {t.ourStoryTitle}
+              </h2>
+              <div className="space-y-6 text-muted-foreground font-light leading-relaxed text-lg text-left">
+                {t.story.map((paragraph, i) => (
+                  <StoryParagraph key={i} text={paragraph} />
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
