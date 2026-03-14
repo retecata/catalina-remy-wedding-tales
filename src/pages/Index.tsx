@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-bg.png';
 import polaroid1 from '@/assets/polaroid-1.png';
+import polaroid2 from '@/assets/polaroid-2.png';
+import polaroid3 from '@/assets/polaroid-3.png';
 import CelebrationCard from '@/components/CelebrationCard';
 import LanguageToggle from '@/components/LanguageToggle';
 import { Heart } from 'lucide-react';
