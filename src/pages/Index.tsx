@@ -146,7 +146,34 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-3 pb-12 shadow-md rotate-[-3deg] w-40">
+              <img src={polaroid4} alt="Catalina and Remy at the stadium" className="w-full h-28 object-cover" />
+            </div>
+          </motion.div>
+
+          {/* Extra polaroid frames */}
+          <motion.div
+            className="hidden xl:block absolute -left-36 bottom-4"
+            initial={{ opacity: 0, rotate: 6 }}
+            whileInView={{ opacity: 1, rotate: 4 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white p-3 pb-12 shadow-md rotate-[4deg] w-40">
               <div className="w-full h-28 bg-muted flex items-center justify-center">
+                <span className="text-muted-foreground text-xs">Photo</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="hidden xl:block absolute -right-36 bottom-12"
+            initial={{ opacity: 0, rotate: -6 }}
+            whileInView={{ opacity: 1, rotate: -4 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white p-3 pb-12 shadow-md rotate-[-4deg] w-42">
+              <div className="w-full h-30 bg-muted flex items-center justify-center">
                 <span className="text-muted-foreground text-xs">Photo</span>
               </div>
             </div>
