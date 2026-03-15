@@ -172,8 +172,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[-4deg] w-42">
-              <div className="w-full h-30 bg-muted flex items-center justify-center">
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[-4deg] w-42">
+              <div className="w-full h-48 bg-muted flex items-center justify-center">
                 <span className="text-muted-foreground text-xs">Photo</span>
               </div>
             </div>
