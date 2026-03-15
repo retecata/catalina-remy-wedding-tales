@@ -108,8 +108,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[-6deg] w-44">
-              <img src={polaroid1} alt="Catalina and Remy in India" className="w-full h-32 object-cover" />
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[-6deg] w-44">
+              <img src={polaroid1} alt="Catalina and Remy in India" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
@@ -120,8 +120,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[3deg] w-40">
-              <img src={polaroid2} alt="Catalina and Remy in costume" className="w-full h-28 object-cover" />
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[3deg] w-40">
+              <img src={polaroid2} alt="Catalina and Remy in costume" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
@@ -133,8 +133,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[5deg] w-44">
-              <img src={polaroid3} alt="Catalina and Remy at King's Day" className="w-full h-32 object-cover" />
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[5deg] w-44">
+              <img src={polaroid3} alt="Catalina and Remy at King's Day" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
@@ -145,8 +145,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[-3deg] w-40">
-              <img src={polaroid4} alt="Catalina and Remy at the stadium" className="w-full h-28 object-cover" />
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[-3deg] w-40">
+              <img src={polaroid4} alt="Catalina and Remy at the stadium" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
@@ -158,8 +158,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[4deg] w-40">
-              <div className="w-full h-28 bg-muted flex items-center justify-center">
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[4deg] w-40">
+              <div className="w-full h-44 bg-muted flex items-center justify-center">
                 <span className="text-muted-foreground text-xs">Photo</span>
               </div>
             </div>
@@ -172,8 +172,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[-4deg] w-42">
-              <div className="w-full h-30 bg-muted flex items-center justify-center">
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[-4deg] w-42">
+              <div className="w-full h-48 bg-muted flex items-center justify-center">
                 <span className="text-muted-foreground text-xs">Photo</span>
               </div>
             </div>
