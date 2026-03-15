@@ -155,12 +155,12 @@ const Index = () => {
           {/* Extra polaroid frames */}
           <motion.div
             className="hidden xl:block absolute -left-36 bottom-4"
-            initial={{ opacity: 0, rotate: 6 }}
-            whileInView={{ opacity: 1, rotate: 4 }}
+            initial={{ opacity: 0, rotate: -6 }}
+            whileInView={{ opacity: 1, rotate: -4 }}
             transition={{ duration: 0.7, delay: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-2 pb-4 shadow-md rotate-[4deg] w-40">
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[-4deg] w-40">
               <img src={polaroid5} alt="Catalina and Remy dressed up" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
