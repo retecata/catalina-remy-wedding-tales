@@ -166,13 +166,13 @@ const Index = () => {
           </motion.div>
 
           <motion.div
-            className="hidden xl:block absolute -right-36 -bottom-16"
-            initial={{ opacity: 0, rotate: -6 }}
-            whileInView={{ opacity: 1, rotate: -4 }}
+            className="hidden xl:block absolute -right-36 -bottom-4"
+            initial={{ opacity: 0, rotate: 6 }}
+            whileInView={{ opacity: 1, rotate: 4 }}
             transition={{ duration: 0.7, delay: 0.7 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-2 pb-4 shadow-md rotate-[-4deg] w-42">
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[4deg] w-42">
               <img src={polaroid6} alt="Catalina and Remy on quad bikes" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
