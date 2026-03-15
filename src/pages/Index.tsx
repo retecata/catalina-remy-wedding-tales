@@ -5,6 +5,8 @@ import polaroid1 from '@/assets/polaroid-1.png';
 import polaroid2 from '@/assets/polaroid-2.png';
 import polaroid3 from '@/assets/polaroid-3.png';
 import polaroid4 from '@/assets/polaroid-4.png';
+import polaroid5 from '@/assets/polaroid-5.png';
+import polaroid6 from '@/assets/polaroid-6.png';
 import CelebrationCard from '@/components/CelebrationCard';
 import LanguageToggle from '@/components/LanguageToggle';
 import { Heart } from 'lucide-react';
