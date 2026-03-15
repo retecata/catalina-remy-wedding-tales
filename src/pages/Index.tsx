@@ -5,6 +5,8 @@ import polaroid1 from '@/assets/polaroid-1.png';
 import polaroid2 from '@/assets/polaroid-2.png';
 import polaroid3 from '@/assets/polaroid-3.png';
 import polaroid4 from '@/assets/polaroid-4.png';
+import polaroid5 from '@/assets/polaroid-5.png';
+import polaroid6 from '@/assets/polaroid-6.png';
 import CelebrationCard from '@/components/CelebrationCard';
 import LanguageToggle from '@/components/LanguageToggle';
 import { Heart } from 'lucide-react';
@@ -159,9 +161,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[4deg] w-40">
-              <div className="w-full h-44 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Photo</span>
-              </div>
+              <img src={polaroid5} alt="Catalina and Remy dressed up" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
@@ -173,9 +173,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[-4deg] w-42">
-              <div className="w-full h-48 bg-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Photo</span>
-              </div>
+              <img src={polaroid6} alt="Catalina and Remy on quad bikes" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
