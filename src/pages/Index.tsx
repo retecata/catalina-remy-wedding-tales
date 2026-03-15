@@ -120,8 +120,8 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white p-3 pb-12 shadow-md rotate-[3deg] w-40">
-              <img src={polaroid2} alt="Catalina and Remy in costume" className="w-full h-28 object-cover" />
+            <div className="bg-white p-2 pb-4 shadow-md rotate-[3deg] w-40">
+              <img src={polaroid2} alt="Catalina and Remy in costume" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
