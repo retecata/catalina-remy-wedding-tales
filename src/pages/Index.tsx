@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import heroBg from '@/assets/hero-bg.png';
 import polaroid1 from '@/assets/polaroid-1.png';
@@ -11,6 +11,58 @@ import CelebrationCard from '@/components/CelebrationCard';
 import LanguageToggle from '@/components/LanguageToggle';
 import { Heart } from 'lucide-react';
 import { Language, pageTranslations } from '@/lib/translations';
+
+const polaroids = [
+  { src: polaroid1, alt: "Catalina and Remy in India", rotate: -6 },
+  { src: polaroid2, alt: "Catalina and Remy in costume", rotate: 3 },
+  { src: polaroid3, alt: "Catalina and Remy at King's Day", rotate: 5 },
+  { src: polaroid4, alt: "Catalina and Remy at the stadium", rotate: -3 },
+  { src: polaroid5, alt: "Catalina and Remy dressed up", rotate: -4 },
+  { src: polaroid6, alt: "Catalina and Remy on quad bikes", rotate: 4 },
+];
+
+const PolaroidCarousel = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let animationId: number;
+    let scrollPos = 0;
+    const speed = 0.5;
+
+    const animate = () => {
+      scrollPos += speed;
+      const halfScroll = el.scrollWidth / 2;
+      if (scrollPos >= halfScroll) {
+        scrollPos = 0;
+      }
+      el.scrollLeft = scrollPos;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
+  const items = [...polaroids, ...polaroids];
+
+  return (
+    <div className="xl:hidden mt-12 -mx-6 overflow-hidden">
+      <div ref={scrollRef} className="flex gap-6 overflow-hidden px-6" style={{ scrollBehavior: 'auto' }}>
+        {items.map((p, i) => (
+          <div
+            key={i}
+            className="flex-shrink-0 bg-white p-2 pb-4 shadow-md w-40"
+            style={{ transform: `rotate(${p.rotate}deg)` }}
+          >
+            <img src={p.src} alt={p.alt} className="w-full h-44 object-cover" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const StoryParagraph = ({ text }: { text: string }) => {
   // Split on | delimiters to find quoted text
@@ -47,7 +99,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-contain sm:bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
 
@@ -194,6 +246,8 @@ const Index = () => {
                   <StoryParagraph key={i} text={paragraph} />
                 ))}
               </div>
+
+              <PolaroidCarousel />
             </motion.div>
           </div>
         </div>
