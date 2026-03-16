@@ -99,8 +99,13 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
+        {/* Mobile: card-bg floral at 40% opacity, Desktop: full hero-bg */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:opacity-100 opacity-40"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:hidden opacity-40"
+          style={{ backgroundImage: `url(${cardBg})` }}
+        />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden sm:block"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
 
