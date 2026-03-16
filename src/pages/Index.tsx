@@ -29,7 +29,7 @@ const PolaroidCarousel = () => {
     if (!el) return;
     let animationId: number;
     let scrollPos = 0;
-    const speed = 0.5;
+    const speed = 0.2;
 
     const animate = () => {
       scrollPos += speed;
