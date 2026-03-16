@@ -246,6 +246,8 @@ const Index = () => {
                   <StoryParagraph key={i} text={paragraph} />
                 ))}
               </div>
+
+              <PolaroidCarousel />
             </motion.div>
           </div>
         </div>
