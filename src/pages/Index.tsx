@@ -231,7 +231,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[4deg] w-42">
-              <img src={polaroid6} alt="Catalina and Remy on quad bikes" className="w-full h-48 object-cover" />
+              <img src={polaroid6} alt="Cătălina and Remy on quad bikes" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
