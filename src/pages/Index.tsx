@@ -99,7 +99,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-contain sm:bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
 
