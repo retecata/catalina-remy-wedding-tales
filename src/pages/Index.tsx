@@ -29,7 +29,7 @@ const PolaroidCarousel = () => {
     if (!el) return;
     let animationId: number;
     let scrollPos = 0;
-    const speed = 0.5;
+    const speed = 0.2;
 
     const animate = () => {
       scrollPos += speed;
@@ -99,7 +99,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-contain sm:bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat sm:opacity-100 opacity-40"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
 
