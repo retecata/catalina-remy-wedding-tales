@@ -58,10 +58,10 @@ export const pageTranslations: Record<Language, {
     ourCelebrationsSubtitle: 'Vă invităm să ne împărtășiți bucuria în două țări frumoase',
     footer: 'Cu dragoste și recunoștință',
     story: [
-      'Era spre sfârșitul pandemiei și, ca mulți alții, amândoi ne refugiasem în gaming. Într-o zi, soarta ne-a aruncat în aceeași partidă de Apex Legends. După câteva runde în care ne-am sincronizat surprinzător de bine, Catalina i-a zis lui Remy: |"Pot să rămân pentru totdeauna în echipa ta?"',
+      'Era spre sfârșitul pandemiei și, ca mulți alții, amândoi ne refugiasem în gaming. Într-o zi, soarta ne-a aruncat în aceeași partidă de Apex Legends. După câteva runde în care ne-am sincronizat surprinzător de bine, Cătălina i-a zis lui Remy: |"Pot să rămân pentru totdeauna în echipa ta?"',
       'Ce a început cu căști și comenzi rapide în joc s-a transformat în mesaje pe WhatsApp până târziu în noapte, ore nesfârșite pe Discord și o conexiune care făcea ca distanța dintre România și Olanda să pară insignifiantă.',
-      'Apoi a venit marele pas — Catalina a zburat în Olanda să-l cunoască pe Remy în realitate. Poate puțin nebunesc, dar din prima clipă în care s-au văzut, totul a căzut la locul lui. La scurt timp după, Remy a făcut și el drumul spre România.',
-      '|"Nu știu dacă are viitor treaba asta,"| i-a spus Catalina pe șleau. |"Am o carieră în Dublin și deocamdată nu mă mut de acolo."| Fără să stea pe gânduri, Remy a răspuns: |"Nicio problemă — mă mut eu."',
+      'Apoi a venit marele pas — Cătălina a zburat în Olanda să-l cunoască pe Remy în realitate. Poate puțin nebunesc, dar din prima clipă în care s-au văzut, totul a căzut la locul lui. La scurt timp după, Remy a făcut și el drumul spre România.',
+      '|"Nu știu dacă are viitor treaba asta,"| i-a spus Cătălina pe șleau. |"Am o carieră în Dublin și deocamdată nu mă mut de acolo."| Fără să stea pe gânduri, Remy a răspuns: |"Nicio problemă — mă mut eu."',
       'Din acel moment, nu s-a clintit nicio secundă. Au locuit împreună în Dublin un an și jumătate, apoi au decis să se mute în Olanda, mai aproape de familia lui. E Olanda destinația finală? Habar n-au — dar oriunde i-ar duce viața, vor fi mereu în echipa celuilalt.',
     ],
   },
