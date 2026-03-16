@@ -125,7 +125,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Catalina{' '}
+            Cătălina{' '}
             <span className="font-light italic text-primary">&</span>{' '}
             Remy
           </motion.h1>
