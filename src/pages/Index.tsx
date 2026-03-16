@@ -14,12 +14,12 @@ import { Heart } from 'lucide-react';
 import { Language, pageTranslations } from '@/lib/translations';
 
 const polaroids = [
-  { src: polaroid1, alt: "Catalina and Remy in India", rotate: -6 },
-  { src: polaroid2, alt: "Catalina and Remy in costume", rotate: 3 },
-  { src: polaroid3, alt: "Catalina and Remy at King's Day", rotate: 5 },
-  { src: polaroid4, alt: "Catalina and Remy at the stadium", rotate: -3 },
-  { src: polaroid5, alt: "Catalina and Remy dressed up", rotate: -4 },
-  { src: polaroid6, alt: "Catalina and Remy on quad bikes", rotate: 4 },
+  { src: polaroid1, alt: "Cătălina and Remy in India", rotate: -6 },
+  { src: polaroid2, alt: "Cătălina and Remy in costume", rotate: 3 },
+  { src: polaroid3, alt: "Cătălina and Remy at King's Day", rotate: 5 },
+  { src: polaroid4, alt: "Cătălina and Remy at the stadium", rotate: -3 },
+  { src: polaroid5, alt: "Cătălina and Remy dressed up", rotate: -4 },
+  { src: polaroid6, alt: "Cătălina and Remy on quad bikes", rotate: 4 },
 ];
 
 const PolaroidCarousel = () => {
