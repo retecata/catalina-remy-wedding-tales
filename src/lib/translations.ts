@@ -43,10 +43,10 @@ export const pageTranslations: Record<Language, {
     ourCelebrationsSubtitle: 'We nodigen jullie uit om onze vreugde te delen in twee prachtige landen',
     footer: 'Met liefde en dankbaarheid',
     story: [
-      'Het was aan het einde van de pandemie, en zoals velen hadden we allebei onze toevlucht gezocht in gaming. Op een dag plaatste het lot ons in dezelfde Apex Legends match. Na een paar rondes verrassend goed teamwork, zei Catalina tegen Remy: |"Mag ik voor altijd in jouw team?"',
+      'Het was aan het einde van de pandemie, en zoals velen hadden we allebei onze toevlucht gezocht in gaming. Op een dag plaatste het lot ons in dezelfde Apex Legends match. Na een paar rondes verrassend goed teamwork, zei Cătălina tegen Remy: |"Mag ik voor altijd in jouw team?"',
       'Wat begon met headsets en ping calls groeide uit tot nachtelijke WhatsApp-berichten, eindeloze Discord-gesprekken en het soort verbinding dat de afstand tussen Roemenië en Nederland als niets doet voelen.',
-      'Toen kwam de sprong in het diepe — Catalina vloog naar Nederland om Remy persoonlijk te ontmoeten. Achteraf gezien misschien een beetje gek, maar vanaf het allereerste moment klikte het gewoon. Kort daarna maakte Remy de reis naar Roemenië.',
-      '|"Ik weet niet of dit een toekomst heeft,"| zei Catalina eerlijk. |"Ik heb een carrière in Dublin en ik ben op dit moment niet bereid om te verhuizen."| Zonder aarzeling antwoordde Remy: |"Geen probleem — ik verhuis wel."',
+      'Toen kwam de sprong in het diepe — Cătălina vloog naar Nederland om Remy persoonlijk te ontmoeten. Achteraf gezien misschien een beetje gek, maar vanaf het allereerste moment klikte het gewoon. Kort daarna maakte Remy de reis naar Roemenië.',
+      '|"Ik weet niet of dit een toekomst heeft,"| zei Cătălina eerlijk. |"Ik heb een carrière in Dublin en ik ben op dit moment niet bereid om te verhuizen."| Zonder aarzeling antwoordde Remy: |"Geen probleem — ik verhuis wel."',
       'Vanaf dat moment wankelde zijn toewijding nooit. Ze woonden anderhalf jaar samen in Dublin voordat ze besloten naar Nederland te verhuizen om dichter bij zijn familie te zijn. Is Nederland de eindbestemming? Dat weten ze nog niet — maar waar het leven hen ook brengt, ze zitten in elkaars team.',
     ],
   },
