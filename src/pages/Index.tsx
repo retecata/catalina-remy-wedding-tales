@@ -14,12 +14,12 @@ import { Heart } from 'lucide-react';
 import { Language, pageTranslations } from '@/lib/translations';
 
 const polaroids = [
-  { src: polaroid1, alt: "Catalina and Remy in India", rotate: -6 },
-  { src: polaroid2, alt: "Catalina and Remy in costume", rotate: 3 },
-  { src: polaroid3, alt: "Catalina and Remy at King's Day", rotate: 5 },
-  { src: polaroid4, alt: "Catalina and Remy at the stadium", rotate: -3 },
-  { src: polaroid5, alt: "Catalina and Remy dressed up", rotate: -4 },
-  { src: polaroid6, alt: "Catalina and Remy on quad bikes", rotate: 4 },
+  { src: polaroid1, alt: "Cătălina and Remy in India", rotate: -6 },
+  { src: polaroid2, alt: "Cătălina and Remy in costume", rotate: 3 },
+  { src: polaroid3, alt: "Cătălina and Remy at King's Day", rotate: 5 },
+  { src: polaroid4, alt: "Cătălina and Remy at the stadium", rotate: -3 },
+  { src: polaroid5, alt: "Cătălina and Remy dressed up", rotate: -4 },
+  { src: polaroid6, alt: "Cătălina and Remy on quad bikes", rotate: 4 },
 ];
 
 const PolaroidCarousel = () => {
@@ -125,7 +125,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Catalina{' '}
+            Cătălina{' '}
             <span className="font-light italic text-primary">&</span>{' '}
             Remy
           </motion.h1>
@@ -169,7 +169,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[-6deg] w-44">
-              <img src={polaroid1} alt="Catalina and Remy in India" className="w-full h-48 object-cover" />
+              <img src={polaroid1} alt="Cătălina and Remy in India" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
@@ -181,7 +181,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[3deg] w-40">
-              <img src={polaroid2} alt="Catalina and Remy in costume" className="w-full h-44 object-cover" />
+              <img src={polaroid2} alt="Cătălina and Remy in costume" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
@@ -194,7 +194,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[5deg] w-44">
-              <img src={polaroid3} alt="Catalina and Remy at King's Day" className="w-full h-48 object-cover" />
+              <img src={polaroid3} alt="Cătălina and Remy at King's Day" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
@@ -206,7 +206,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[-3deg] w-40">
-              <img src={polaroid4} alt="Catalina and Remy at the stadium" className="w-full h-44 object-cover" />
+              <img src={polaroid4} alt="Cătălina and Remy at the stadium" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
@@ -219,7 +219,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[-4deg] w-40">
-              <img src={polaroid5} alt="Catalina and Remy dressed up" className="w-full h-44 object-cover" />
+              <img src={polaroid5} alt="Cătălina and Remy dressed up" className="w-full h-44 object-cover" />
             </div>
           </motion.div>
 
@@ -231,7 +231,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <div className="bg-white p-2 pb-4 shadow-md rotate-[4deg] w-42">
-              <img src={polaroid6} alt="Catalina and Remy on quad bikes" className="w-full h-48 object-cover" />
+              <img src={polaroid6} alt="Cătălina and Remy on quad bikes" className="w-full h-48 object-cover" />
             </div>
           </motion.div>
 
