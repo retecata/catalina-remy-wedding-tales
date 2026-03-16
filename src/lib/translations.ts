@@ -30,8 +30,8 @@ export const pageTranslations: Record<Language, {
     story: [
       'It was the tail end of the pandemic, and like many, we\'d both found refuge in gaming. One day, fate queued us into the same Apex Legends match. After a few rounds of surprisingly good teamwork, Cătălina turned to Remy and said: |"Can I be forever in your team?"',
       'What started with headsets and ping calls grew into late-night WhatsApp messages, endless Discord calls, and the kind of connection that makes the distance between Romania and the Netherlands feel like nothing at all.',
-      'Then came the leap of faith — Catalina flew to the Netherlands to meet Remy in person. A bit crazy in hindsight, perhaps, but from the very first moment they met, everything just clicked. Soon after, Remy made the trip to Romania.',
-      '|"I don\'t know if this has a future,"| Catalina said honestly. |"I have a career in Dublin and I\'m not willing to move right now."| Without hesitation, Remy replied: |"No problem — I\'ll move."',
+      'Then came the leap of faith — Cătălina flew to the Netherlands to meet Remy in person. A bit crazy in hindsight, perhaps, but from the very first moment they met, everything just clicked. Soon after, Remy made the trip to Romania.',
+      '|"I don\'t know if this has a future,"| Cătălina said honestly. |"I have a career in Dublin and I\'m not willing to move right now."| Without hesitation, Remy replied: |"No problem — I\'ll move."',
       'From that moment, his commitment never wavered. They lived together in Dublin for a year and a half before deciding to move to the Netherlands to be closer to his family. Is the Netherlands the final stop? They don\'t know yet — but wherever life takes them, they\'ll be in each other\'s team.',
     ],
   },
