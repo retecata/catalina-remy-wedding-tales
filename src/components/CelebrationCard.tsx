@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { MapPin, Calendar, ArrowRight, CalendarPlus } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import { Language, translations, eventDates, countdownLabels } from '@/lib/translations';
 import cardBg from '@/assets/card-bg.png';
@@ -11,9 +11,19 @@ interface CelebrationCardProps {
   lang: Language;
 }
 
+const googleCalendarLinks: Record<'netherlands' | 'romania', string> = {
+  netherlands: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Cătălina & Remy — Netherlands Celebration')}&dates=20260905/20260906&location=${encodeURIComponent('Brouwerskolkje, Overveen, Netherlands')}&details=${encodeURIComponent('Wedding celebration of Cătălina & Remy in the Netherlands')}`,
+  romania: `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Cătălina & Remy — Romania Celebration')}&dates=20270911/20270912&location=${encodeURIComponent('Sun Garden Resort, Cluj-Napoca, Romania')}&details=${encodeURIComponent('Wedding celebration of Cătălina & Remy in Romania')}`,
+};
+
 const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
   const navigate = useNavigate();
   const t = translations[event][lang];
+
+  const handleCalendarClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    window.open(googleCalendarLinks[event], '_blank');
+  };
 
   return (
     <motion.div
@@ -52,12 +62,21 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
 
       <CountdownTimer targetDate={eventDates[event]} labels={countdownLabels[lang]} />
 
-      <button
-        className="relative z-10 mt-8 w-full py-3 px-6 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-primary/90 transition-colors duration-300 flex items-center justify-center gap-2"
-      >
-        RSVP
-        <ArrowRight className="w-3.5 h-3.5" />
-      </button>
+      <div className="relative z-10 mt-8 flex gap-3">
+        <button
+          className="flex-1 py-3 px-6 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-primary/90 transition-colors duration-300 flex items-center justify-center gap-2"
+        >
+          RSVP
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+        <button
+          onClick={handleCalendarClick}
+          className="py-3 px-4 border border-primary text-primary font-body text-sm rounded-sm hover:bg-primary/10 transition-colors duration-300 flex items-center justify-center"
+          title="Add to Google Calendar"
+        >
+          <CalendarPlus className="w-4 h-4" />
+        </button>
+      </div>
     </motion.div>
   );
 };
