@@ -110,6 +110,7 @@ const formTranslations: Record<Language, {
     dietaryPlaceholder: 'Vegetarian, vegan, alergii…',
     song: 'Cerere muzicală',
     songPlaceholder: 'Ce melodie te scoate pe ringul de dans?',
+    isChild: 'Acesta este un copil (sub 18 ani)',
     submit: 'Trimite RSVP',
     submitting: 'Se trimite…',
     successTitle: 'Mulțumim!',
