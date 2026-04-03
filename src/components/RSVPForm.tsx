@@ -280,7 +280,18 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
         {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
       </div>
 
-      {/* Email */}
+      {/* Is Child */}
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          id="is_child"
+          checked={form.is_child}
+          onChange={(e) => setForm({ ...form, is_child: e.target.checked })}
+          className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
+        />
+        <label htmlFor="is_child" className="text-sm text-foreground cursor-pointer">{t.isChild}</label>
+      </div>
+
       <div>
         <label className="block text-sm font-medium text-foreground mb-1.5">{t.email}</label>
         <input
