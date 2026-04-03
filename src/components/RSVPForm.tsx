@@ -138,6 +138,7 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     name: '',
     email: '',
     attending: true,
+    is_child: false,
     dietary_requirements: '',
     song_request: '',
   });
