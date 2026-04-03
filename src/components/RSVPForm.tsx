@@ -84,6 +84,7 @@ const formTranslations: Record<Language, {
     dietaryPlaceholder: 'Vegetarisch, veganistisch, allergieën…',
     song: 'Muziekverzoek',
     songPlaceholder: 'Welk nummer krijgt jou op de dansvloer?',
+    isChild: 'Dit is een kind (onder 18)',
     submit: 'Verstuur RSVP',
     submitting: 'Verzenden…',
     successTitle: 'Bedankt!',
