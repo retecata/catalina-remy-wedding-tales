@@ -1,0 +1,1 @@
+ALTER TABLE public.rsvps ADD COLUMN is_child boolean NOT NULL DEFAULT false;
