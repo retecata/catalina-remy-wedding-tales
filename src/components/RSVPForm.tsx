@@ -11,6 +11,7 @@ const rsvpSchema = z.object({
   name: z.string().trim().min(1).max(100),
   email: z.string().trim().email().max(255),
   attending: z.boolean(),
+  is_child: z.boolean(),
   dietary_requirements: z.string().trim().max(500).optional(),
   song_request: z.string().trim().max(200).optional(),
 });
@@ -31,6 +32,7 @@ const formTranslations: Record<Language, {
   dietaryPlaceholder: string;
   song: string;
   songPlaceholder: string;
+  isChild: string;
   submit: string;
   submitting: string;
   successTitle: string;
@@ -56,6 +58,7 @@ const formTranslations: Record<Language, {
     dietaryPlaceholder: 'Vegetarian, vegan, allergies…',
     song: 'Song request',
     songPlaceholder: 'What song gets you on the dance floor?',
+    isChild: 'This is a child (under 18)',
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
@@ -81,6 +84,7 @@ const formTranslations: Record<Language, {
     dietaryPlaceholder: 'Vegetarisch, veganistisch, allergieën…',
     song: 'Muziekverzoek',
     songPlaceholder: 'Welk nummer krijgt jou op de dansvloer?',
+    isChild: 'Dit is een kind (onder 18)',
     submit: 'Verstuur RSVP',
     submitting: 'Verzenden…',
     successTitle: 'Bedankt!',
@@ -106,6 +110,7 @@ const formTranslations: Record<Language, {
     dietaryPlaceholder: 'Vegetarian, vegan, alergii…',
     song: 'Cerere muzicală',
     songPlaceholder: 'Ce melodie te scoate pe ringul de dans?',
+    isChild: 'Acesta este un copil (sub 18 ani)',
     submit: 'Trimite RSVP',
     submitting: 'Se trimite…',
     successTitle: 'Mulțumim!',
@@ -133,6 +138,7 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     name: '',
     email: '',
     attending: true,
+    is_child: false,
     dietary_requirements: '',
     song_request: '',
   });
@@ -171,6 +177,7 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
       name: result.data.name,
       email: result.data.email,
       attending: result.data.attending,
+      is_child: result.data.is_child,
       dietary_requirements: result.data.dietary_requirements || null,
       song_request: result.data.song_request || null,
       event,
@@ -273,7 +280,18 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
         {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
       </div>
 
-      {/* Email */}
+      {/* Is Child */}
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          id="is_child"
+          checked={form.is_child}
+          onChange={(e) => setForm({ ...form, is_child: e.target.checked })}
+          className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
+        />
+        <label htmlFor="is_child" className="text-sm text-foreground cursor-pointer">{t.isChild}</label>
+      </div>
+
       <div>
         <label className="block text-sm font-medium text-foreground mb-1.5">{t.email}</label>
         <input

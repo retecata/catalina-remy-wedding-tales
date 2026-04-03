@@ -22,6 +22,7 @@ export type Database = {
           email: string
           event: string
           id: string
+          is_child: boolean
           name: string
           song_request: string | null
         }
@@ -32,6 +33,7 @@ export type Database = {
           email: string
           event: string
           id?: string
+          is_child?: boolean
           name: string
           song_request?: string | null
         }
@@ -42,6 +44,7 @@ export type Database = {
           email?: string
           event?: string
           id?: string
+          is_child?: boolean
           name?: string
           song_request?: string | null
         }
