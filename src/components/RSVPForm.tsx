@@ -177,6 +177,7 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
       name: result.data.name,
       email: result.data.email,
       attending: result.data.attending,
+      is_child: result.data.is_child,
       dietary_requirements: result.data.dietary_requirements || null,
       song_request: result.data.song_request || null,
       event,
