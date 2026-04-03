@@ -52,10 +52,12 @@ const CelebrationCard = ({ event, flag, lang }: CelebrationCardProps) => {
 
       <CountdownTimer targetDate={eventDates[event]} labels={countdownLabels[lang]} />
 
-      <div className="relative z-10 flex items-center justify-center gap-2 mt-6 text-sm text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <span>{t.details}</span>
+      <button
+        className="relative z-10 mt-8 w-full py-3 px-6 bg-primary text-primary-foreground font-body text-sm tracking-widest uppercase rounded-sm hover:bg-primary/90 transition-colors duration-300 flex items-center justify-center gap-2"
+      >
+        RSVP
         <ArrowRight className="w-3.5 h-3.5" />
-      </div>
+      </button>
     </motion.div>
   );
 };
