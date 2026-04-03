@@ -32,6 +32,7 @@ const formTranslations: Record<Language, {
   dietaryPlaceholder: string;
   song: string;
   songPlaceholder: string;
+  isChild: string;
   submit: string;
   submitting: string;
   successTitle: string;
