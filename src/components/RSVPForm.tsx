@@ -58,6 +58,7 @@ const formTranslations: Record<Language, {
     dietaryPlaceholder: 'Vegetarian, vegan, allergies…',
     song: 'Song request',
     songPlaceholder: 'What song gets you on the dance floor?',
+    isChild: 'This is a child (under 18)',
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
