@@ -224,7 +224,7 @@ const Index = () => {
           </motion.div>
 
           <motion.div
-            className="hidden xl:block absolute -right-36 -bottom-4"
+            className="hidden xl:block absolute -right-36 -bottom-20"
             initial={{ opacity: 0, rotate: 6 }}
             whileInView={{ opacity: 1, rotate: 4 }}
             transition={{ duration: 0.7, delay: 0.7 }}
