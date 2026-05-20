@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      photos: {
+        Row: {
+          created_at: string
+          event: string
+          id: string
+          storage_path: string
+          uploader_name: string | null
+        }
+        Insert: {
+          created_at?: string
+          event?: string
+          id?: string
+          storage_path: string
+          uploader_name?: string | null
+        }
+        Update: {
+          created_at?: string
+          event?: string
+          id?: string
+          storage_path?: string
+          uploader_name?: string | null
+        }
+        Relationships: []
+      }
       rsvps: {
         Row: {
           attending: boolean
