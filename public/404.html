@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cătălina & Remy</title>
+    <script>
+      // GitHub Pages SPA redirect (spa-github-pages technique).
+      // Stash the path + query in sessionStorage and bounce to index.html,
+      // which restores the URL before React Router mounts.
+      (function () {
+        sessionStorage.setItem(
+          'spa-redirect',
+          window.location.pathname + window.location.search + window.location.hash
+        );
+        window.location.replace('/');
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
