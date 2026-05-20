@@ -21,7 +21,11 @@ const Pictures = () => {
 
   const load = async () => {
     setLoading(true);
-    const { data, error } = await supabase.functions.invoke('list-photos');
+    const params = new URLSearchParams(window.location.search);
+    const preview = params.get('preview');
+    const { data, error } = await supabase.functions.invoke(
+      preview ? `list-photos?preview=${encodeURIComponent(preview)}` : 'list-photos'
+    );
     if (error) {
       toast.error('Could not load gallery');
       setLoading(false);
