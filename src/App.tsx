@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Netherlands from "./pages/Netherlands";
 import Romania from "./pages/Romania";
+import Upload from "./pages/Upload";
+import Pictures from "./pages/Pictures";
 import NotFound from "./pages/NotFound";
 import { ScrollToTop } from "./components/ScrollToTop";
 
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/netherlands" element={<Netherlands />} />
           <Route path="/romania" element={<Romania />} />
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/pictures" element={<Pictures />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
