@@ -10,7 +10,11 @@ Deno.serve(async (req) => {
   }
 
   const now = new Date()
-  const revealed = now >= REVEAL_AT_NL
+  const url = new URL(req.url)
+  const previewCode = url.searchParams.get('preview')
+  const expectedCode = Deno.env.get('PHOTO_DELETE_CODE')
+  const previewUnlock = !!previewCode && !!expectedCode && previewCode === expectedCode
+  const revealed = now >= REVEAL_AT_NL || previewUnlock
 
   const supabase = createClient(
     Deno.env.get('SUPABASE_URL')!,
