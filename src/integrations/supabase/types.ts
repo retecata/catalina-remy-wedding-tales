@@ -17,6 +17,7 @@ export type Database = {
       photos: {
         Row: {
           created_at: string
+          description: string | null
           event: string
           id: string
           storage_path: string
@@ -24,6 +25,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          description?: string | null
           event?: string
           id?: string
           storage_path: string
@@ -31,6 +33,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          description?: string | null
           event?: string
           id?: string
           storage_path?: string
