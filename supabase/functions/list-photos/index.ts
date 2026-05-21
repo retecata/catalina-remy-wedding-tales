@@ -30,7 +30,7 @@ Deno.serve(async (req) => {
 
   const { data, error } = await supabase
     .from('photos')
-    .select('id, uploader_name, storage_path, created_at')
+    .select('id, uploader_name, description, storage_path, created_at')
     .eq('event', 'netherlands')
     .order('created_at', { ascending: false })
 
@@ -46,6 +46,7 @@ Deno.serve(async (req) => {
   const photos = (data ?? []).map((p) => ({
     id: p.id,
     uploader_name: p.uploader_name,
+    description: p.description,
     created_at: p.created_at,
     url: `${supabaseUrl}/storage/v1/object/public/${bucket}/${p.storage_path}`,
   }))
