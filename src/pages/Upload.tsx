@@ -11,6 +11,7 @@ interface UploadedPhoto {
 
 const Upload = () => {
   const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [uploading, setUploading] = useState(false);
   const [uploaded, setUploaded] = useState<UploadedPhoto[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -43,6 +44,7 @@ const Upload = () => {
         .insert({
           event: 'netherlands',
           uploader_name: name.trim() || null,
+          description: description.trim() || null,
           storage_path: path,
         });
 
@@ -63,7 +65,10 @@ const Upload = () => {
 
     setUploading(false);
     if (fileInputRef.current) fileInputRef.current.value = '';
-    if (successes > 0) toast.success('Thanks for sharing! 💛');
+    if (successes > 0) {
+      toast.success('Thanks for sharing! 💛');
+      setDescription('');
+    }
   };
 
   return (
@@ -84,7 +89,17 @@ const Upload = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="e.g. Anna"
-          className="w-full px-4 py-3 rounded-lg border border-input bg-background mb-6"
+          className="w-full px-4 py-3 rounded-lg border border-input bg-background mb-4"
+        />
+
+        <label className="block text-sm font-medium mb-2">Caption (optional)</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="A little note about this moment…"
+          rows={2}
+          maxLength={240}
+          className="w-full px-4 py-3 rounded-lg border border-input bg-background mb-6 resize-none"
         />
 
         <button
