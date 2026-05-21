@@ -1,0 +1,1 @@
+DELETE FROM public.photos WHERE storage_path = 'test-debug.jpg';
