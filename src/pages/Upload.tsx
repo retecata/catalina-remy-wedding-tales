@@ -18,6 +18,7 @@ const Upload = () => {
   const handleFiles = async (files: FileList | null) => {
     if (!files || files.length === 0) return;
     setUploading(true);
+    let successes = 0;
 
     for (const file of Array.from(files)) {
       if (file.size > 10 * 1024 * 1024) {
@@ -36,18 +37,19 @@ const Upload = () => {
         continue;
       }
 
-      const { data: row, error: dbErr } = await supabase
+      // Note: no .select() because the photos table has no SELECT policy for anon.
+      const { error: dbErr } = await supabase
         .from('photos')
         .insert({
           event: 'netherlands',
           uploader_name: name.trim() || null,
           storage_path: path,
-        })
-        .select('id')
-        .single();
+        });
 
-      if (dbErr || !row) {
+      if (dbErr) {
         toast.error('Could not save photo');
+        // Clean up the orphan file so it doesn't sit in storage without a DB row.
+        await supabase.storage.from('wedding-photos-nl').remove([path]);
         continue;
       }
 
@@ -55,12 +57,13 @@ const Upload = () => {
         .from('wedding-photos-nl')
         .getPublicUrl(path);
 
-      setUploaded((prev) => [{ id: row.id, url: pub.publicUrl }, ...prev]);
+      setUploaded((prev) => [{ id: path, url: pub.publicUrl }, ...prev]);
+      successes++;
     }
 
     setUploading(false);
     if (fileInputRef.current) fileInputRef.current.value = '';
-    toast.success('Thanks for sharing! 💛');
+    if (successes > 0) toast.success('Thanks for sharing! 💛');
   };
 
   return (
