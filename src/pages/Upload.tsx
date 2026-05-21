@@ -114,7 +114,7 @@ const Upload = () => {
             </>
           ) : (
             <>
-              <Camera className="w-6 h-6" /> Take / choose photos
+              <Camera className="w-6 h-6" /> Take Photo
             </>
           )}
         </button>
