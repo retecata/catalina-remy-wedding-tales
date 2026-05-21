@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 interface Photo {
   id: string;
   uploader_name: string | null;
+  description: string | null;
   url: string;
   created_at: string;
 }
@@ -18,6 +19,7 @@ const Pictures = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [countdown, setCountdown] = useState('');
   const [lightbox, setLightbox] = useState<Photo | null>(null);
+  const [tappedId, setTappedId] = useState<string | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -122,14 +124,36 @@ const Pictures = () => {
             <p className="text-muted-foreground mb-8">{photos.length} memories from our guests 💛</p>
             <div className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
               {photos.map((p) => (
-                <div key={p.id} className="break-inside-avoid relative group rounded-lg overflow-hidden">
+                <div
+                  key={p.id}
+                  className="break-inside-avoid relative group rounded-lg overflow-hidden mb-3"
+                >
                   <img
                     src={p.url}
                     alt={p.uploader_name ? `By ${p.uploader_name}` : 'Guest photo'}
                     loading="lazy"
-                    onClick={() => setLightbox(p)}
+                    onClick={() => {
+                      // On touch devices, first tap reveals caption; second opens lightbox.
+                      const isTouch = window.matchMedia('(hover: none)').matches;
+                      if (isTouch && p.description && tappedId !== p.id) {
+                        setTappedId(p.id);
+                        return;
+                      }
+                      setLightbox(p);
+                    }}
                     className="w-full cursor-pointer hover:opacity-90 transition"
                   />
+                  {p.description && (
+                    <div
+                      className={`pointer-events-none absolute inset-0 flex items-start justify-center p-4 bg-white/75 backdrop-blur-sm transition-opacity duration-200 ${
+                        tappedId === p.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                      }`}
+                    >
+                      <p className="font-serif text-sm md:text-base text-foreground leading-snug text-center mt-2 max-h-full overflow-hidden">
+                        {p.description}
+                      </p>
+                    </div>
+                  )}
                   <div className="absolute inset-x-0 bottom-0 p-2 flex items-center justify-between bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition">
                     <span className="text-xs text-white truncate">
                       {p.uploader_name || ''}
@@ -176,6 +200,13 @@ const Pictures = () => {
             className="max-h-full max-w-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />
+          {lightbox.description && (
+            <div className="absolute top-16 left-1/2 -translate-x-1/2 max-w-xl px-5 py-3 bg-white/85 rounded-lg backdrop-blur-sm">
+              <p className="font-serif text-base text-foreground text-center leading-snug">
+                {lightbox.description}
+              </p>
+            </div>
+          )}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
             <button
               onClick={(e) => { e.stopPropagation(); handleDownload(lightbox); }}
