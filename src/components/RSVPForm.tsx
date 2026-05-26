@@ -187,6 +187,16 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     if (error) {
       setSubmitError(true);
     } else {
+      // Fire-and-forget email notification
+      supabase.functions.invoke('notify-rsvp', {
+        body: {
+          name: result.data.name,
+          email: result.data.email,
+          attending: result.data.attending,
+          is_child: result.data.is_child,
+          event,
+        },
+      }).catch((e) => console.error('notify-rsvp failed', e));
       setSubmitted(true);
     }
   };
