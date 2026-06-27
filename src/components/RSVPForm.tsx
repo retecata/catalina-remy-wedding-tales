@@ -242,6 +242,22 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
       });
     }
 
+    // Each child is stored as a separate RSVP row with the child flag ticked
+    const childRows = result.data.attending && bringingChildren
+      ? children
+          .filter((c) => c.name.trim().length > 0)
+          .map((c) => ({
+            name: c.name.trim(),
+            email: result.data.email,
+            attending: true,
+            is_child: true,
+            dietary_requirements: c.dietary.trim() || null,
+            song_request: null,
+            event,
+          }))
+      : [];
+    rows.push(...childRows);
+
     const { error } = await supabase.from('rsvps').insert(rows);
 
     setSubmitting(false);
@@ -270,6 +286,18 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
           },
         }).catch((e) => console.error('notify-rsvp failed', e));
       }
+
+      childRows.forEach((c) => {
+        supabase.functions.invoke('notify-rsvp', {
+          body: {
+            name: c.name,
+            email: c.email,
+            attending: true,
+            is_child: true,
+            event,
+          },
+        }).catch((e) => console.error('notify-rsvp failed', e));
+      });
       setSubmitted(true);
     }
   };
