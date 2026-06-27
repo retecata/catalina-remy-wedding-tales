@@ -163,6 +163,9 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     is_child: false,
     dietary_requirements: '',
     song_request: '',
+    has_plus_one: false,
+    plus_one_name: '',
+    plus_one_dietary: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -195,15 +198,33 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from('rsvps').insert({
-      name: result.data.name,
-      email: result.data.email,
-      attending: result.data.attending,
-      is_child: result.data.is_child,
-      dietary_requirements: result.data.dietary_requirements || null,
-      song_request: result.data.song_request || null,
-      event,
-    });
+
+    const rows = [
+      {
+        name: result.data.name,
+        email: result.data.email,
+        attending: result.data.attending,
+        is_child: result.data.is_child,
+        dietary_requirements: result.data.dietary_requirements || null,
+        song_request: result.data.song_request || null,
+        event,
+      },
+    ];
+
+    // A +1 is stored as a separate RSVP row
+    if (result.data.attending && result.data.has_plus_one && result.data.plus_one_name) {
+      rows.push({
+        name: result.data.plus_one_name,
+        email: result.data.email,
+        attending: true,
+        is_child: false,
+        dietary_requirements: result.data.plus_one_dietary || null,
+        song_request: null,
+        event,
+      });
+    }
+
+    const { error } = await supabase.from('rsvps').insert(rows);
 
     setSubmitting(false);
     if (error) {
@@ -219,6 +240,18 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
           event,
         },
       }).catch((e) => console.error('notify-rsvp failed', e));
+
+      if (result.data.attending && result.data.has_plus_one && result.data.plus_one_name) {
+        supabase.functions.invoke('notify-rsvp', {
+          body: {
+            name: result.data.plus_one_name,
+            email: result.data.email,
+            attending: true,
+            is_child: false,
+            event,
+          },
+        }).catch((e) => console.error('notify-rsvp failed', e));
+      }
       setSubmitted(true);
     }
   };
