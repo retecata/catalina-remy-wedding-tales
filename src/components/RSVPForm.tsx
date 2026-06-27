@@ -429,6 +429,55 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
         </motion.div>
       )}
 
+      {/* +1 - only show if attending */}
+      {form.attending && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="has_plus_one"
+              checked={form.has_plus_one}
+              onChange={(e) => setForm({ ...form, has_plus_one: e.target.checked })}
+              className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
+            />
+            <label htmlFor="has_plus_one" className="text-sm text-foreground cursor-pointer">{t.plusOne}</label>
+          </div>
+
+          {form.has_plus_one && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="space-y-4 pl-6 border-l border-input"
+            >
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t.plusOneName}</label>
+                <input
+                  type="text"
+                  value={form.plus_one_name}
+                  onChange={(e) => setForm({ ...form, plus_one_name: e.target.value })}
+                  placeholder={t.plusOneNamePlaceholder}
+                  className={inputClass}
+                  maxLength={100}
+                />
+                {errors.plus_one_name && <p className="text-destructive text-xs mt-1">{errors.plus_one_name}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t.plusOneDietary}</label>
+                <input
+                  type="text"
+                  value={form.plus_one_dietary}
+                  onChange={(e) => setForm({ ...form, plus_one_dietary: e.target.value })}
+                  placeholder={t.dietaryPlaceholder}
+                  className={inputClass}
+                  maxLength={500}
+                />
+              </div>
+            </motion.div>
+          )}
+        </div>
+      )}
+
       {submitError && (
         <p className="text-destructive text-sm text-center">{t.errorMessage}</p>
       )}
