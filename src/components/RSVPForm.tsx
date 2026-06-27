@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Check, Lock } from 'lucide-react';
+import { Send, Check, Lock, Plus, X } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { Language } from '@/lib/translations';
 import { z } from 'zod';
