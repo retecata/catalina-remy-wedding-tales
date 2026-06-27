@@ -14,7 +14,13 @@ const rsvpSchema = z.object({
   is_child: z.boolean(),
   dietary_requirements: z.string().trim().max(500).optional(),
   song_request: z.string().trim().max(200).optional(),
-});
+  has_plus_one: z.boolean(),
+  plus_one_name: z.string().trim().max(100).optional(),
+  plus_one_dietary: z.string().trim().max(500).optional(),
+}).refine(
+    (d) => !d.attending || !d.has_plus_one || (d.plus_one_name && d.plus_one_name.length > 0),
+    { message: 'Required', path: ['plus_one_name'] },
+  );
 
 type RSVPEvent = 'netherlands' | 'romania';
 
@@ -33,6 +39,10 @@ const formTranslations: Record<Language, {
   song: string;
   songPlaceholder: string;
   isChild: string;
+  plusOne: string;
+  plusOneName: string;
+  plusOneNamePlaceholder: string;
+  plusOneDietary: string;
   submit: string;
   submitting: string;
   successTitle: string;
@@ -59,6 +69,10 @@ const formTranslations: Record<Language, {
     song: 'Song request',
     songPlaceholder: 'What song gets you on the dance floor?',
     isChild: 'This is a child (under 18)',
+    plusOne: "I'm bringing a +1",
+    plusOneName: "Your +1's name",
+    plusOneNamePlaceholder: 'Full name',
+    plusOneDietary: "Your +1's dietary requirements",
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
@@ -85,6 +99,10 @@ const formTranslations: Record<Language, {
     song: 'Muziekverzoek',
     songPlaceholder: 'Welk nummer krijgt jou op de dansvloer?',
     isChild: 'Dit is een kind (onder 18)',
+    plusOne: 'Ik neem een +1 mee',
+    plusOneName: 'Naam van je +1',
+    plusOneNamePlaceholder: 'Volledige naam',
+    plusOneDietary: 'Dieetwensen van je +1',
     submit: 'Verstuur RSVP',
     submitting: 'Verzenden…',
     successTitle: 'Bedankt!',
@@ -111,6 +129,10 @@ const formTranslations: Record<Language, {
     song: 'Cerere muzicală',
     songPlaceholder: 'Ce melodie te scoate pe ringul de dans?',
     isChild: 'Acesta este un copil (sub 18 ani)',
+    plusOne: 'Vin cu un însoțitor (+1)',
+    plusOneName: 'Numele însoțitorului tău',
+    plusOneNamePlaceholder: 'Nume complet',
+    plusOneDietary: 'Cerințele alimentare ale însoțitorului',
     submit: 'Trimite RSVP',
     submitting: 'Se trimite…',
     successTitle: 'Mulțumim!',
@@ -141,6 +163,9 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     is_child: false,
     dietary_requirements: '',
     song_request: '',
+    has_plus_one: false,
+    plus_one_name: '',
+    plus_one_dietary: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -173,15 +198,33 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     }
 
     setSubmitting(true);
-    const { error } = await supabase.from('rsvps').insert({
-      name: result.data.name,
-      email: result.data.email,
-      attending: result.data.attending,
-      is_child: result.data.is_child,
-      dietary_requirements: result.data.dietary_requirements || null,
-      song_request: result.data.song_request || null,
-      event,
-    });
+
+    const rows = [
+      {
+        name: result.data.name,
+        email: result.data.email,
+        attending: result.data.attending,
+        is_child: result.data.is_child,
+        dietary_requirements: result.data.dietary_requirements || null,
+        song_request: result.data.song_request || null,
+        event,
+      },
+    ];
+
+    // A +1 is stored as a separate RSVP row
+    if (result.data.attending && result.data.has_plus_one && result.data.plus_one_name) {
+      rows.push({
+        name: result.data.plus_one_name,
+        email: result.data.email,
+        attending: true,
+        is_child: false,
+        dietary_requirements: result.data.plus_one_dietary || null,
+        song_request: null,
+        event,
+      });
+    }
+
+    const { error } = await supabase.from('rsvps').insert(rows);
 
     setSubmitting(false);
     if (error) {
@@ -197,6 +240,18 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
           event,
         },
       }).catch((e) => console.error('notify-rsvp failed', e));
+
+      if (result.data.attending && result.data.has_plus_one && result.data.plus_one_name) {
+        supabase.functions.invoke('notify-rsvp', {
+          body: {
+            name: result.data.plus_one_name,
+            email: result.data.email,
+            attending: true,
+            is_child: false,
+            event,
+          },
+        }).catch((e) => console.error('notify-rsvp failed', e));
+      }
       setSubmitted(true);
     }
   };
@@ -372,6 +427,55 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
             maxLength={200}
           />
         </motion.div>
+      )}
+
+      {/* +1 - only show if attending */}
+      {form.attending && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="has_plus_one"
+              checked={form.has_plus_one}
+              onChange={(e) => setForm({ ...form, has_plus_one: e.target.checked })}
+              className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
+            />
+            <label htmlFor="has_plus_one" className="text-sm text-foreground cursor-pointer">{t.plusOne}</label>
+          </div>
+
+          {form.has_plus_one && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="space-y-4 pl-6 border-l border-input"
+            >
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t.plusOneName}</label>
+                <input
+                  type="text"
+                  value={form.plus_one_name}
+                  onChange={(e) => setForm({ ...form, plus_one_name: e.target.value })}
+                  placeholder={t.plusOneNamePlaceholder}
+                  className={inputClass}
+                  maxLength={100}
+                />
+                {errors.plus_one_name && <p className="text-destructive text-xs mt-1">{errors.plus_one_name}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">{t.plusOneDietary}</label>
+                <input
+                  type="text"
+                  value={form.plus_one_dietary}
+                  onChange={(e) => setForm({ ...form, plus_one_dietary: e.target.value })}
+                  placeholder={t.dietaryPlaceholder}
+                  className={inputClass}
+                  maxLength={500}
+                />
+              </div>
+            </motion.div>
+          )}
+        </div>
       )}
 
       {submitError && (
