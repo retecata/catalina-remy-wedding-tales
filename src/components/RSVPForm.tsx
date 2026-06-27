@@ -43,6 +43,10 @@ const formTranslations: Record<Language, {
   plusOneName: string;
   plusOneNamePlaceholder: string;
   plusOneDietary: string;
+  bringingChildren: string;
+  childName: string;
+  childDietary: string;
+  addChild: string;
   submit: string;
   submitting: string;
   successTitle: string;
@@ -73,6 +77,10 @@ const formTranslations: Record<Language, {
     plusOneName: "Your +1's name",
     plusOneNamePlaceholder: 'Full name',
     plusOneDietary: "Your +1's dietary requirements",
+    bringingChildren: "I'm bringing children",
+    childName: "Child's name",
+    childDietary: "Child's dietary requirements",
+    addChild: 'Add another child',
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
@@ -103,6 +111,10 @@ const formTranslations: Record<Language, {
     plusOneName: 'Naam van je +1',
     plusOneNamePlaceholder: 'Volledige naam',
     plusOneDietary: 'Dieetwensen van je +1',
+    bringingChildren: 'Ik neem kinderen mee',
+    childName: 'Naam van het kind',
+    childDietary: 'Dieetwensen van het kind',
+    addChild: 'Nog een kind toevoegen',
     submit: 'Verstuur RSVP',
     submitting: 'Verzenden…',
     successTitle: 'Bedankt!',
@@ -133,6 +145,10 @@ const formTranslations: Record<Language, {
     plusOneName: 'Numele însoțitorului tău',
     plusOneNamePlaceholder: 'Nume complet',
     plusOneDietary: 'Cerințele alimentare ale însoțitorului',
+    bringingChildren: 'Vin cu copii',
+    childName: 'Numele copilului',
+    childDietary: 'Cerințele alimentare ale copilului',
+    addChild: 'Adaugă încă un copil',
     submit: 'Trimite RSVP',
     submitting: 'Se trimite…',
     successTitle: 'Mulțumim!',
