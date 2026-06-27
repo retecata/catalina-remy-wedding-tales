@@ -33,6 +33,10 @@ const formTranslations: Record<Language, {
   song: string;
   songPlaceholder: string;
   isChild: string;
+  plusOne: string;
+  plusOneName: string;
+  plusOneNamePlaceholder: string;
+  plusOneDietary: string;
   submit: string;
   submitting: string;
   successTitle: string;
@@ -59,6 +63,10 @@ const formTranslations: Record<Language, {
     song: 'Song request',
     songPlaceholder: 'What song gets you on the dance floor?',
     isChild: 'This is a child (under 18)',
+    plusOne: "I'm bringing a +1",
+    plusOneName: "Your +1's name",
+    plusOneNamePlaceholder: 'Full name',
+    plusOneDietary: "Your +1's dietary requirements",
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
@@ -85,6 +93,10 @@ const formTranslations: Record<Language, {
     song: 'Muziekverzoek',
     songPlaceholder: 'Welk nummer krijgt jou op de dansvloer?',
     isChild: 'Dit is een kind (onder 18)',
+    plusOne: 'Ik neem een +1 mee',
+    plusOneName: 'Naam van je +1',
+    plusOneNamePlaceholder: 'Volledige naam',
+    plusOneDietary: 'Dieetwensen van je +1',
     submit: 'Verstuur RSVP',
     submitting: 'Verzenden…',
     successTitle: 'Bedankt!',
@@ -111,6 +123,10 @@ const formTranslations: Record<Language, {
     song: 'Cerere muzicală',
     songPlaceholder: 'Ce melodie te scoate pe ringul de dans?',
     isChild: 'Acesta este un copil (sub 18 ani)',
+    plusOne: 'Vin cu un însoțitor (+1)',
+    plusOneName: 'Numele însoțitorului tău',
+    plusOneNamePlaceholder: 'Nume complet',
+    plusOneDietary: 'Cerințele alimentare ale însoțitorului',
     submit: 'Trimite RSVP',
     submitting: 'Se trimite…',
     successTitle: 'Mulțumim!',
