@@ -17,8 +17,7 @@ const rsvpSchema = z.object({
   has_plus_one: z.boolean(),
   plus_one_name: z.string().trim().max(100).optional(),
   plus_one_dietary: z.string().trim().max(500).optional(),
-});
-  .refine(
+}).refine(
     (d) => !d.attending || !d.has_plus_one || (d.plus_one_name && d.plus_one_name.length > 0),
     { message: 'Required', path: ['plus_one_name'] },
   );
