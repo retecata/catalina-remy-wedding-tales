@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Check, Lock } from 'lucide-react';
+import { Send, Check, Lock, Plus, X } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { Language } from '@/lib/translations';
 import { z } from 'zod';
@@ -43,6 +43,10 @@ const formTranslations: Record<Language, {
   plusOneName: string;
   plusOneNamePlaceholder: string;
   plusOneDietary: string;
+  bringingChildren: string;
+  childName: string;
+  childDietary: string;
+  addChild: string;
   submit: string;
   submitting: string;
   successTitle: string;
@@ -73,6 +77,10 @@ const formTranslations: Record<Language, {
     plusOneName: "Your +1's name",
     plusOneNamePlaceholder: 'Full name',
     plusOneDietary: "Your +1's dietary requirements",
+    bringingChildren: "I'm bringing children",
+    childName: "Child's name",
+    childDietary: "Child's dietary requirements",
+    addChild: 'Add another child',
     submit: 'Send RSVP',
     submitting: 'Sending…',
     successTitle: 'Thank you!',
@@ -103,6 +111,10 @@ const formTranslations: Record<Language, {
     plusOneName: 'Naam van je +1',
     plusOneNamePlaceholder: 'Volledige naam',
     plusOneDietary: 'Dieetwensen van je +1',
+    bringingChildren: 'Ik neem kinderen mee',
+    childName: 'Naam van het kind',
+    childDietary: 'Dieetwensen van het kind',
+    addChild: 'Nog een kind toevoegen',
     submit: 'Verstuur RSVP',
     submitting: 'Verzenden…',
     successTitle: 'Bedankt!',
@@ -133,6 +145,10 @@ const formTranslations: Record<Language, {
     plusOneName: 'Numele însoțitorului tău',
     plusOneNamePlaceholder: 'Nume complet',
     plusOneDietary: 'Cerințele alimentare ale însoțitorului',
+    bringingChildren: 'Vin cu copii',
+    childName: 'Numele copilului',
+    childDietary: 'Cerințele alimentare ale copilului',
+    addChild: 'Adaugă încă un copil',
     submit: 'Trimite RSVP',
     submitting: 'Se trimite…',
     successTitle: 'Mulțumim!',
@@ -167,6 +183,8 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     plus_one_name: '',
     plus_one_dietary: '',
   });
+  const [bringingChildren, setBringingChildren] = useState(false);
+  const [children, setChildren] = useState<{ name: string; dietary: string }[]>([{ name: '', dietary: '' }]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -224,6 +242,22 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
       });
     }
 
+    // Each child is stored as a separate RSVP row with the child flag ticked
+    const childRows = result.data.attending && bringingChildren
+      ? children
+          .filter((c) => c.name.trim().length > 0)
+          .map((c) => ({
+            name: c.name.trim(),
+            email: result.data.email,
+            attending: true,
+            is_child: true,
+            dietary_requirements: c.dietary.trim() || null,
+            song_request: null,
+            event,
+          }))
+      : [];
+    rows.push(...childRows);
+
     const { error } = await supabase.from('rsvps').insert(rows);
 
     setSubmitting(false);
@@ -252,6 +286,18 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
           },
         }).catch((e) => console.error('notify-rsvp failed', e));
       }
+
+      childRows.forEach((c) => {
+        supabase.functions.invoke('notify-rsvp', {
+          body: {
+            name: c.name,
+            email: c.email,
+            attending: true,
+            is_child: true,
+            event,
+          },
+        }).catch((e) => console.error('notify-rsvp failed', e));
+      });
       setSubmitted(true);
     }
   };
@@ -343,18 +389,6 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
           maxLength={100}
         />
         {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
-      </div>
-
-      {/* Is Child */}
-      <div className="flex items-center gap-2">
-        <input
-          type="checkbox"
-          id="is_child"
-          checked={form.is_child}
-          onChange={(e) => setForm({ ...form, is_child: e.target.checked })}
-          className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
-        />
-        <label htmlFor="is_child" className="text-sm text-foreground cursor-pointer">{t.isChild}</label>
       </div>
 
       <div>
@@ -473,6 +507,79 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
                   maxLength={500}
                 />
               </div>
+            </motion.div>
+          )}
+        </div>
+      )}
+
+      {/* Children - only show if attending */}
+      {form.attending && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="bringing_children"
+              checked={bringingChildren}
+              onChange={(e) => setBringingChildren(e.target.checked)}
+              className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
+            />
+            <label htmlFor="bringing_children" className="text-sm text-foreground cursor-pointer">{t.bringingChildren}</label>
+          </div>
+
+          {bringingChildren && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="space-y-5 pl-6 border-l border-input"
+            >
+              {children.map((child, i) => (
+                <div key={i} className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs uppercase tracking-wide text-muted-foreground">
+                      {t.childName} {children.length > 1 ? i + 1 : ''}
+                    </span>
+                    {children.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => setChildren(children.filter((_, idx) => idx !== i))}
+                        className="text-muted-foreground hover:text-destructive transition-colors"
+                        aria-label="Remove"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+                  <input
+                    type="text"
+                    value={child.name}
+                    onChange={(e) =>
+                      setChildren(children.map((c, idx) => (idx === i ? { ...c, name: e.target.value } : c)))
+                    }
+                    placeholder={t.childName}
+                    className={inputClass}
+                    maxLength={100}
+                  />
+                  <input
+                    type="text"
+                    value={child.dietary}
+                    onChange={(e) =>
+                      setChildren(children.map((c, idx) => (idx === i ? { ...c, dietary: e.target.value } : c)))
+                    }
+                    placeholder={t.childDietary}
+                    className={inputClass}
+                    maxLength={500}
+                  />
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => setChildren([...children, { name: '', dietary: '' }])}
+                className="flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
+              >
+                <Plus className="w-4 h-4" />
+                {t.addChild}
+              </button>
             </motion.div>
           )}
         </div>
