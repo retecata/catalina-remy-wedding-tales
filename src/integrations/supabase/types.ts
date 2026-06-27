@@ -48,9 +48,12 @@ export type Database = {
           dietary_requirements: string | null
           email: string
           event: string
+          has_plus_one: boolean
           id: string
           is_child: boolean
           name: string
+          plus_one_dietary_requirements: string | null
+          plus_one_name: string | null
           song_request: string | null
         }
         Insert: {
@@ -59,9 +62,12 @@ export type Database = {
           dietary_requirements?: string | null
           email: string
           event: string
+          has_plus_one?: boolean
           id?: string
           is_child?: boolean
           name: string
+          plus_one_dietary_requirements?: string | null
+          plus_one_name?: string | null
           song_request?: string | null
         }
         Update: {
@@ -70,9 +76,12 @@ export type Database = {
           dietary_requirements?: string | null
           email?: string
           event?: string
+          has_plus_one?: boolean
           id?: string
           is_child?: boolean
           name?: string
+          plus_one_dietary_requirements?: string | null
+          plus_one_name?: string | null
           song_request?: string | null
         }
         Relationships: []
