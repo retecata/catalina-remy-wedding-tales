@@ -14,7 +14,14 @@ const rsvpSchema = z.object({
   is_child: z.boolean(),
   dietary_requirements: z.string().trim().max(500).optional(),
   song_request: z.string().trim().max(200).optional(),
+  has_plus_one: z.boolean(),
+  plus_one_name: z.string().trim().max(100).optional(),
+  plus_one_dietary: z.string().trim().max(500).optional(),
 });
+  .refine(
+    (d) => !d.attending || !d.has_plus_one || (d.plus_one_name && d.plus_one_name.length > 0),
+    { message: 'Required', path: ['plus_one_name'] },
+  );
 
 type RSVPEvent = 'netherlands' | 'romania';
 
