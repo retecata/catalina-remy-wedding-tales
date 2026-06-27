@@ -183,6 +183,8 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
     plus_one_name: '',
     plus_one_dietary: '',
   });
+  const [bringingChildren, setBringingChildren] = useState(false);
+  const [children, setChildren] = useState<{ name: string; dietary: string }[]>([{ name: '', dietary: '' }]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
