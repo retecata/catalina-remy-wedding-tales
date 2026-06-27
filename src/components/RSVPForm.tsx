@@ -512,6 +512,79 @@ const RSVPForm = ({ event, lang }: RSVPFormProps) => {
         </div>
       )}
 
+      {/* Children - only show if attending */}
+      {form.attending && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="bringing_children"
+              checked={bringingChildren}
+              onChange={(e) => setBringingChildren(e.target.checked)}
+              className="h-4 w-4 rounded border-input text-primary focus:ring-ring"
+            />
+            <label htmlFor="bringing_children" className="text-sm text-foreground cursor-pointer">{t.bringingChildren}</label>
+          </div>
+
+          {bringingChildren && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="space-y-5 pl-6 border-l border-input"
+            >
+              {children.map((child, i) => (
+                <div key={i} className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs uppercase tracking-wide text-muted-foreground">
+                      {t.childName} {children.length > 1 ? i + 1 : ''}
+                    </span>
+                    {children.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => setChildren(children.filter((_, idx) => idx !== i))}
+                        className="text-muted-foreground hover:text-destructive transition-colors"
+                        aria-label="Remove"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+                  <input
+                    type="text"
+                    value={child.name}
+                    onChange={(e) =>
+                      setChildren(children.map((c, idx) => (idx === i ? { ...c, name: e.target.value } : c)))
+                    }
+                    placeholder={t.childName}
+                    className={inputClass}
+                    maxLength={100}
+                  />
+                  <input
+                    type="text"
+                    value={child.dietary}
+                    onChange={(e) =>
+                      setChildren(children.map((c, idx) => (idx === i ? { ...c, dietary: e.target.value } : c)))
+                    }
+                    placeholder={t.childDietary}
+                    className={inputClass}
+                    maxLength={500}
+                  />
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => setChildren([...children, { name: '', dietary: '' }])}
+                className="flex items-center gap-1.5 text-sm text-primary hover:text-primary/80 transition-colors"
+              >
+                <Plus className="w-4 h-4" />
+                {t.addChild}
+              </button>
+            </motion.div>
+          )}
+        </div>
+      )}
+
       {submitError && (
         <p className="text-destructive text-sm text-center">{t.errorMessage}</p>
       )}
