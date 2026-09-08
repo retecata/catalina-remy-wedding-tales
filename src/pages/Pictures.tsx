@@ -63,10 +63,9 @@ const Pictures = () => {
   }, [revealAt, revealed]);
 
   const handleDelete = async (id: string) => {
-    const code = prompt('Enter moderator code to delete this photo:');
-    if (!code) return;
+    if (!confirm('Delete this photo permanently?')) return;
     const { data, error } = await supabase.functions.invoke('delete-photo', {
-      body: { id, code },
+      body: { id },
     });
     if (error || !data?.success) {
       toast.error(data?.error || 'Could not delete');

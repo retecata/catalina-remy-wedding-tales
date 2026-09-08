@@ -13,7 +13,7 @@ Deno.serve(async (req) => {
     })
   }
 
-  let body: { id?: string; code?: string }
+  let body: { id?: string }
   try {
     body = await req.json()
   } catch {
@@ -23,18 +23,10 @@ Deno.serve(async (req) => {
     })
   }
 
-  const { id, code } = body
-  if (!id || !code) {
-    return new Response(JSON.stringify({ error: 'Missing id or code' }), {
+  const { id } = body
+  if (!id) {
+    return new Response(JSON.stringify({ error: 'Missing id' }), {
       status: 400,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    })
-  }
-
-  const expected = Deno.env.get('PHOTO_DELETE_CODE')
-  if (!expected || code !== expected) {
-    return new Response(JSON.stringify({ error: 'Invalid code' }), {
-      status: 403,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
